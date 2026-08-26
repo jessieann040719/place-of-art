@@ -155,3 +155,12 @@ textarea{min-height:130px;resize:vertical} input[type=file]{padding:10px}
   .booking-grid{grid-template-columns:1fr}
   .booking-card-image{height:310px}
 }
+
+.admin-login-card{max-width:580px;margin:0 auto}
+.admin-userbar{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.admin-userbar h2{font-family:Georgia,serif;font-weight:400;font-size:2rem}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px}
+.legend-item{display:flex;align-items:center;gap:7px;color:#bfae9b;font-size:.82rem}
+.dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+.btn.danger{border-color:var(--red);color:#efb5ab}
+code{font-family:Consolas,monospace;color:var(--sand)}

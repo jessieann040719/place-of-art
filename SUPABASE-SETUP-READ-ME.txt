@@ -1,0 +1,49 @@
+PLACE OF ART V5 — REAL ARTIST LOGIN + NO-CODE CMS
+
+This version contains the REAL Supabase login and CMS code.
+It is not a fake/demo login.
+
+ONE-TIME SETUP YOU STILL HAVE TO DO
+I cannot create your private Supabase account/passwords for you from this chat.
+You only need to do this setup once.
+
+1. Go to https://supabase.com and create a free account/project.
+2. In Supabase, open SQL Editor.
+3. Copy the entire contents of supabase-LIVE-SETUP.sql and run it.
+4. Go to Authentication -> Users and create one user for each artist.
+   Use each artist's email and choose a password.
+5. Link each login to the correct artist row:
+   - Copy the user's UUID from Authentication -> Users.
+   - In Table Editor -> artists -> edit that artist -> paste the UUID into user_id.
+6. Go to Project Settings -> API.
+7. Copy:
+   - Project URL
+   - public anon/publishable key
+8. Open config.js in GitHub and paste ONLY those two public values.
+   NEVER paste a service-role key, database password, Stripe secret, Square token, or any private secret into GitHub.
+9. Commit config.js.
+10. Open:
+   https://jessieann040719.github.io/place-of-art/admin.html
+   Sign in with the artist email/password.
+
+AFTER THAT — NO CODE FOR NORMAL USE
+From admin.html artists can:
+- view all shared booking requests
+- Accept / Decline appointments
+- see client, artist, service, requested date/time, deposit due/paid and total price
+- publish News & Events
+- upload Healed photos
+- add Art Gallery pieces and prices
+- add tattoo images to artist portfolios
+- delete published content
+
+PUBLIC PAGES
+News & Events, Healed, Art Gallery and live artist portfolios load published content from Supabase automatically.
+
+BOOKING
+The public booking page sends booking requests to Supabase and uploads reference images to the private booking-references bucket after configuration.
+The request stays PENDING until the studio accepts it.
+
+PAYMENTS
+The gift-card and tattoo-deposit screens are still NOT taking real card payments yet.
+For that we connect Stripe or Square next. Payment secrets must never be put into GitHub.

@@ -4,69 +4,125 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Artist Dashboard | Place of Art</title>
-<meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
+<meta name="description" content="Private Place of Art artist dashboard.">
 <link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
 </head>
 <body>
-
 <header class="site-header">
   <nav class="nav-shell">
-    <a class="brand" href="index.html">
-      <span>PLACE OF ART</span>
-      <small>TATTOO SHOP & GALLERY</small>
-    </a>
-    <button class="mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
-    <div class="nav-links">
-      <a href="artists.html">Artists</a>
-      <a href="booking.html">Booking</a>
-      <a href="the-shop.html">The Shop</a>
-      <a href="art-gallery.html">Art Gallery</a>
-      <a href="healed.html">Healed</a>
-      <a href="news-events.html">News & Events</a>
-      <a href="gift-cards.html">Gift Cards</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a class="nav-book" href="booking.html">Book Now</a>
-    </div>
+    <a class="brand" href="index.html"><span>PLACE OF ART</span><small>TATTOO SHOP & GALLERY</small></a>
+    <div class="nav-links"><a href="index.html">Public Website</a><a class="nav-book" href="admin.html">Artist Login</a></div>
   </nav>
 </header>
 
-
-<section class="page-hero"><div class="container"><div class="kicker">Private Team Area</div><h1>Artist Dashboard</h1><p>Manage appointments, News & Events, Healed photos, Art Gallery items and artist portfolios without editing HTML once the live Supabase connection is enabled.</p></div></section>
-<div class="admin-shell">
-<div id="loginBox" class="card" style="max-width:560px;margin:auto"><h3>Artist Login</h3><p>Demo mode is available now. The live version will use individual email/password accounts.</p><div class="form-grid" style="margin-top:16px"><div class="full"><label>Email</label><input type="email" placeholder="artist@email.com"></div><div class="full"><label>Password</label><input type="password" placeholder="Password"></div></div><button class="btn fill" id="demoLogin" style="margin-top:16px">Open Demo Dashboard</button></div>
-<div id="dash" style="display:none">
-<div class="admin-grid">
-<div class="admin-nav">
-<button class="active" data-panel="appointments">Appointments</button><button data-panel="news">News & Events</button><button data-panel="healed">Healed</button><button data-panel="art">Art Gallery</button><button data-panel="portfolio">Artist Portfolios</button>
-</div>
-<div>
-<section class="admin-panel active" id="panel-appointments"><div class="section-head"><h2>Appointments</h2><p>Pending requests can be accepted or declined. Deposit and total price remain visible.</p></div><div class="table-wrap"><table><thead><tr><th>Status</th><th>Client</th><th>Artist</th><th>Service</th><th>Date / Time</th><th>Deposit</th><th>Total</th><th>Actions</th></tr></thead><tbody id="apptRows"></tbody></table></div></section>
-
-<section class="admin-panel" id="panel-news"><div class="section-head"><h2>News & Events</h2><p>Create a post without touching code.</p></div><div class="card"><div class="form-grid"><div><label>Title</label><input id="newsTitle"></div><div><label>Date</label><input id="newsDate" type="date"></div><div class="full"><label>Text</label><textarea id="newsText"></textarea></div><div class="full"><label>Image</label><input type="file" accept="image/*"></div></div><button class="btn fill cms-demo" data-kind="news">Publish</button></div><div id="newsList" style="margin-top:18px"></div></section>
-
-<section class="admin-panel" id="panel-healed"><div class="section-head"><h2>Healed Gallery</h2><p>Upload a healed tattoo and publish it.</p></div><div class="card"><label>Image</label><input type="file" accept="image/*"><label style="margin-top:12px">Caption</label><input><button class="btn fill cms-demo" data-kind="healed">Publish</button></div></section>
-
-<section class="admin-panel" id="panel-art"><div class="section-head"><h2>Art Gallery</h2><p>Add paintings or artwork for sale.</p></div><div class="card"><div class="form-grid"><div><label>Artwork Title</label><input></div><div><label>Price</label><input></div><div class="full"><label>Description</label><textarea></textarea></div><div class="full"><label>Image</label><input type="file" accept="image/*"></div></div><button class="btn fill cms-demo" data-kind="art">Publish</button></div></section>
-
-<section class="admin-panel" id="panel-portfolio"><div class="section-head"><h2>Artist Portfolios</h2><p>Choose an artist, upload work and publish it to that artist's profile.</p></div><div class="card"><label>Artist</label><select><option>Jessie-Ann Odell</option><option>Ian Odell</option><option>Taylor Paige Graham</option><option>Vivian Howerton</option><option>Jaycee McKinney</option></select><label style="margin-top:12px">Tattoo Image</label><input type="file" accept="image/*" multiple><button class="btn fill cms-demo" data-kind="portfolio">Publish</button></div></section>
-</div></div></div>
-</div>
-
-
-<footer class="footer">
-  <div class="footer-brand">PLACE OF ART</div>
-  <div>Tattoo Shop & Gallery · Poteau, Oklahoma</div>
-  <div class="footer-links">
-    <a href="policy.html">Studio Policy</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-    <a href="aftercare.html">Aftercare</a>
-    <a href="admin.html">Artist Login</a>
+<section class="page-hero">
+  <div class="container reveal-left">
+    <div class="kicker">Private Team Area</div>
+    <h1>Artist Dashboard</h1>
+    <p>Sign in to manage appointments, News & Events, Healed work, Art Gallery items and artist portfolios without editing website code.</p>
   </div>
-</footer>
-<script src="site.js"></script>
+</section>
 
-<script src="admin.js"></script>
+<main class="admin-shell">
+  <div id="setupMessage"></div>
+
+  <section id="authView" class="card admin-login-card">
+    <h3>Artist Sign In</h3>
+    <p>Use the email and password assigned to your Place of Art artist account.</p>
+    <form id="loginForm" class="form-grid" style="margin-top:18px">
+      <div class="full"><label>Email</label><input id="loginEmail" type="email" autocomplete="email" required></div>
+      <div class="full"><label>Password</label><input id="loginPassword" type="password" autocomplete="current-password" required></div>
+      <div class="full"><button class="btn fill" type="submit">Sign In</button></div>
+    </form>
+    <div id="loginMessage"></div>
+  </section>
+
+  <section id="dashboardView" style="display:none">
+    <div class="admin-userbar">
+      <div><div class="kicker">Signed In</div><h2 id="signedInName">Artist</h2></div>
+      <div class="actions"><button id="logoutBtn" class="btn" type="button">Sign Out</button></div>
+    </div>
+
+    <div class="admin-grid">
+      <aside class="admin-nav">
+        <button class="active" data-panel="appointments">Appointments</button>
+        <button data-panel="news">News & Events</button>
+        <button data-panel="healed">Healed</button>
+        <button data-panel="art">Art Gallery</button>
+        <button data-panel="portfolio">Portfolios</button>
+      </aside>
+
+      <div>
+        <section class="admin-panel active" id="panel-appointments">
+          <div class="section-head"><h2>Shared Appointments</h2><p>Everyone sees the same booking requests and confirmed appointments. Each artist has their own color.</p></div>
+          <div class="legend" id="artistLegend"></div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Status</th><th>Client</th><th>Artist</th><th>Service</th><th>Date / Time</th><th>Deposit</th><th>Total</th><th>Details</th><th>Actions</th></tr></thead>
+            <tbody id="appointmentRows"></tbody>
+          </table></div>
+        </section>
+
+        <section class="admin-panel" id="panel-news">
+          <div class="section-head"><h2>News & Events</h2><p>Create, edit and delete public news or event posts.</p></div>
+          <form id="newsForm" class="card">
+            <div class="form-grid">
+              <div><label>Type</label><select id="newsKind"><option value="news">News</option><option value="event">Event</option></select></div>
+              <div><label>Date</label><input id="newsDate" type="date"></div>
+              <div class="full"><label>Title *</label><input id="newsTitle" required></div>
+              <div class="full"><label>Text *</label><textarea id="newsBody" required></textarea></div>
+              <div class="full"><label>Image</label><input id="newsImage" type="file" accept="image/*"></div>
+            </div>
+            <button class="btn fill" type="submit">Publish</button>
+            <div id="newsMessage"></div>
+          </form>
+          <div id="newsAdminList" style="margin-top:18px"></div>
+        </section>
+
+        <section class="admin-panel" id="panel-healed">
+          <div class="section-head"><h2>Healed Gallery</h2><p>Upload healed tattoo photographs to the public Healed page.</p></div>
+          <form id="healedForm" class="card">
+            <label>Caption</label><input id="healedTitle">
+            <label style="margin-top:12px">Image *</label><input id="healedImage" type="file" accept="image/*" required>
+            <button class="btn fill" type="submit">Publish Healed Photo</button>
+            <div id="healedMessage"></div>
+          </form>
+          <div id="healedAdminList" style="margin-top:18px"></div>
+        </section>
+
+        <section class="admin-panel" id="panel-art">
+          <div class="section-head"><h2>Art Gallery</h2><p>Add original paintings or artwork for sale.</p></div>
+          <form id="artForm" class="card">
+            <div class="form-grid">
+              <div><label>Artwork Title *</label><input id="artTitle" required></div>
+              <div><label>Price ($)</label><input id="artPrice" type="number" min="0" step="0.01"></div>
+              <div class="full"><label>Description</label><textarea id="artBody"></textarea></div>
+              <div class="full"><label>Artwork Image *</label><input id="artImage" type="file" accept="image/*" required></div>
+            </div>
+            <button class="btn fill" type="submit">Publish Artwork</button>
+            <div id="artMessage"></div>
+          </form>
+          <div id="artAdminList" style="margin-top:18px"></div>
+        </section>
+
+        <section class="admin-panel" id="panel-portfolio">
+          <div class="section-head"><h2>Artist Portfolios</h2><p>Upload tattoo photographs to an artist profile without touching HTML.</p></div>
+          <form id="portfolioForm" class="card">
+            <label>Artist *</label><select id="portfolioArtist" required></select>
+            <label style="margin-top:12px">Caption</label><input id="portfolioTitle">
+            <label style="margin-top:12px">Tattoo Image *</label><input id="portfolioImage" type="file" accept="image/*" required>
+            <button class="btn fill" type="submit">Add to Portfolio</button>
+            <div id="portfolioMessage"></div>
+          </form>
+          <div id="portfolioAdminList" style="margin-top:18px"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="footer-brand">PLACE OF ART</div><div>Tattoo Shop & Gallery · Poteau, Oklahoma</div></footer>
+<script src="site.js"></script>
+<script type="module" src="admin-live.js"></script>
 </body>
 </html>
