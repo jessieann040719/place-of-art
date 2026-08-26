@@ -1,23 +1,19 @@
 
-const categoryIcons = {
- fineline:`<svg viewBox="0 0 120 120"><path d="M30 90L78 42l8 8-48 48-17 4z"/><path d="M77 43l8-8 13 13-8 8"/><path d="M32 87l10 10"/></svg>`,
- bundle:`<svg viewBox="0 0 120 120"><path d="M22 84l42-42 8 8-42 42z"/><path d="M48 91l38-38 8 8-38 38z"/><path d="M66 40l8-8 14 14-8 8"/><path d="M82 55l8-8 10 10-8 8"/></svg>`,
- micro:`<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="34"/><circle cx="60" cy="60" r="16"/><path d="M60 18v14M60 88v14M18 60h14M88 60h14M30 30l10 10M80 80l10 10M90 30L80 40M40 80L30 90"/></svg>`,
- medium:`<svg viewBox="0 0 120 120"><rect x="25" y="25" width="70" height="70" rx="8"/><path d="M42 78l18-18 12 12 12-12"/></svg>`,
- large:`<svg viewBox="0 0 120 120"><path d="M22 94h76V26H22z"/><path d="M37 78l23-27 20 20 10-12"/></svg>`,
- sleeves:`<svg viewBox="0 0 120 120"><path d="M42 23c10 5 26 5 36 0l10 16-13 8v50H45V47l-13-8z"/><path d="M45 61h30M45 76h30"/></svg>`,
- gift:`<svg viewBox="0 0 120 120"><rect x="22" y="45" width="76" height="52"/><path d="M60 45v52M18 45h84V32H18z"/><path d="M60 32c-4-17-26-19-26-6 0 9 13 7 26 6zM60 32c4-17 26-19 26-6 0 9-13 7-26 6z"/></svg>`
-};
-
 const categories=[
-{id:"fineline",name:"Fine Line Tattoo",price:"0.5–1 inch $150 · 2–3 inch $200 · 4–5 inch $250+",kind:"fine"},
-{id:"bundle",name:"Fine Line Tattoo Bundle",price:"Choose size first, then 1, 2 or 3 tattoos",kind:"bundle"},
-{id:"micro",name:"Micro Realism",price:"Starting at $200+",kind:"custom"},
-{id:"medium",name:"Medium Sized Tattoo",price:"Starting at $400+",kind:"custom"},
-{id:"large",name:"Large Tattoo",price:"Starting at $600+",kind:"large"},
-{id:"sleeves",name:"Custom Sleeves",price:"Arm · Leg · Torso · Custom Pricing",kind:"large"},
-{id:"gift",name:"Gift Card",price:"Custom Amount",kind:"gift"}
+{id:"fineline",name:"Fine Line Tattoo",price:"Choose your size to see pricing",kind:"fine",image:"assets/booking/fine-small-key.jpg"},
+{id:"bundle",name:"Fine Line Tattoo Bundle",price:"Choose size, then 1, 2 or 3 tattoos",kind:"bundle",image:"assets/booking/fine-medium-rabbits.jpg"},
+{id:"micro",name:"Micro Realism",price:"Starting at $200+",kind:"custom",image:"assets/booking/micro-fox.jpg"},
+{id:"medium",name:"Medium Sized Tattoo",price:"Starting at $400+",kind:"custom",image:"assets/booking/medium-headdress.jpg"},
+{id:"realism",name:"Realism",price:"Starting at $500+",kind:"custom",image:"assets/booking/realism-tiger.jpg"},
+{id:"large",name:"Large Tattoo",price:"Starting at $600+",kind:"large",image:"assets/booking/large-hands.jpg"},
+{id:"sleeves",name:"Custom Sleeves & More",price:"Custom Pricing",kind:"large",image:"assets/booking/sleeve-elephant.jpg"}
 ];
+
+const fineSizeImages={
+ "0.5–1 inch":"assets/booking/fine-small-key.jpg",
+ "2–3 inch":"assets/booking/fine-medium-rabbits.jpg",
+ "4–5 inch":"assets/booking/fine-large-skull.jpg"
+};
 
 const artists=[
 {id:"jessie-ann-odell",name:"Jessie-Ann Odell",sub:"Realism · Fine Line · Micro Realism"},
@@ -40,7 +36,7 @@ const categoryEl=document.getElementById("categoryChoices");
 categories.forEach(c=>{
  const b=document.createElement("button");
  b.type="button"; b.className="tattoo-category-card";
- b.innerHTML=`<div class="tattoo-category-icon">${categoryIcons[c.id]}</div><div class="tattoo-category-content"><h3>${c.name}</h3><p>${c.price}</p><span>Choose this tattoo</span></div>`;
+ b.innerHTML=`<div class="tattoo-category-image"><img src="${c.image}" alt="${c.name}"></div><div class="tattoo-category-content"><h3>${c.name}</h3><p>${c.price}</p><span>Choose & Continue</span></div>`;
  b.onclick=()=>{
    categoryEl.querySelectorAll(".tattoo-category-card").forEach(x=>x.classList.remove("selected"));
    b.classList.add("selected");
@@ -69,9 +65,9 @@ function renderCategoryOptions(){
  <h3>${bundle?"Fine Line Bundle — Step 1: Choose Size":"Fine Line Tattoo — Choose Size"}</h3>
  <p>${bundle?"Choose the approximate size first. After that, choose how many tattoos you want in the bundle.":"Choose the approximate size of your tattoo."}</p>
  <div class="big-option-grid" id="sizeChoices">
-   <button class="big-option" data-size="0.5–1 inch"><strong>0.5–1 inch</strong><span>Small Fine Line</span></button>
-   <button class="big-option" data-size="2–3 inch"><strong>2–3 inch</strong><span>Medium Fine Line</span></button>
-   <button class="big-option" data-size="4–5 inch"><strong>4–5 inch</strong><span>Larger Fine Line</span></button>
+   <button class="big-option image-option" data-size="0.5–1 inch"><img src="${fineSizeImages["0.5–1 inch"]}" alt="0.5–1 inch fine line"><strong>0.5–1 inch</strong><span>$150 · 1 tattoo</span></button>
+   <button class="big-option image-option" data-size="2–3 inch"><img src="${fineSizeImages["2–3 inch"]}" alt="2–3 inch fine line"><strong>2–3 inch</strong><span>$200 · 1 tattoo</span></button>
+   <button class="big-option image-option" data-size="4–5 inch"><img src="${fineSizeImages["4–5 inch"]}" alt="4–5 inch fine line"><strong>4–5 inch</strong><span>$250+ · 1 tattoo</span></button>
  </div>
  <div id="countArea"></div>`;
  box.querySelectorAll("[data-size]").forEach(btn=>btn.onclick=()=>{
@@ -128,6 +124,7 @@ document.getElementById("toDetails").onclick=()=>{
  if(state.category.id==="bundle"&&!state.count)return alert("Please choose 1, 2 or 3 tattoos.");
  if(state.category.id==="micro"){state.price=200;state.pricePlus=true;state.duration=null;}
  if(state.category.id==="medium"){state.price=400;state.pricePlus=true;state.duration=null;}
+ if(state.category.id==="realism"){state.price=500;state.pricePlus=true;state.duration=null;}
  if(state.category.id==="large"){state.price=600;state.pricePlus=true;state.duration=null;}
  if(state.category.id==="sleeves"){state.price=null;state.pricePlus=false;state.duration=null;}
  if(state.category.id==="gift"){state.price=null;state.pricePlus=false;state.duration=null;}
