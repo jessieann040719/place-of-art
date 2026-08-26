@@ -1,0 +1,64 @@
+PLACE OF ART V3 — READY FOR GITHUB
+
+THIS VERSION INCLUDES
+- Warm dark professional redesign
+- Professional scroll/reveal/stagger animations
+- Homepage WITHOUT the white logo box
+- Homepage headline: Place of Art / Tattoo Shop & Gallery / Poteau, Oklahoma
+- Booking cards all equal-sized and using the correct real tattoo photos:
+  Fine Line -> key
+  Micro Realism -> crowned fox
+  Realism -> tiger
+  Medium -> blue-headdress figure
+  Large -> two touching hands
+  Custom Sleeves & More -> elephant full sleeve
+  Gift Card -> elegant gift icon + custom amount
+- Fine Line / Fine Line Bundle:
+  choose main card -> choose size with image -> Bundle chooses 1/2/3 tattoos -> Book Now
+- Size images:
+  0.5–1 inch -> key
+  2–3 inch -> three rabbits
+  4–5 inch -> bull skull
+- Customer name, date of birth, email, phone, placement, description and reference images
+- Artist selection
+- Calendar request system
+- Sunday closed
+- Jessie-Ann small tattoos 9 AM–1 PM
+- Other small bookings 9 AM–5 PM
+- Large/custom/realism start at 9 AM
+- Fine Line duration rules
+- Pending request -> Accept / Decline
+- Shared artist dashboard demo
+- Jessie-Ann portfolio with all 13 images from bebenden.zip
+- The Shop gallery uses all images from keks(1).zip
+- About Us full story including Saint Ink in Heilsbronn, Germany
+- Contact info
+- Art Gallery, Healed, News & Events pages
+- Studio Policy, Privacy, Terms and Aftercare
+- CMS/Admin interface prepared so artists can later publish without code
+
+IMPORTANT ABOUT NO-CODE EDITING
+GitHub Pages cannot securely save logins, uploaded images, events or news by itself.
+The admin interface is built, but to make Publish work across all devices:
+1. Create a free Supabase project.
+2. Run supabase-schema.sql in Supabase SQL Editor.
+3. Create artist accounts in Supabase Authentication.
+4. Link each user ID to the matching artists.user_id.
+5. Create a private/public Storage setup for website images as appropriate.
+6. Put the PUBLIC Supabase project URL and anon/publishable key into config.js.
+7. Connect the provided admin/content code to the Supabase tables.
+8. For deposits, connect Stripe or Square using secure server/webhook logic.
+Never put secret keys in GitHub.
+
+AFTER LIVE CMS IS CONNECTED
+Artists will be able to:
+- log in at admin.html
+- accept/decline booking requests
+- add News & Events with images
+- add Healed images
+- add Art Gallery items with price
+- add portfolio images
+without editing HTML.
+
+UPLOAD TO GITHUB
+This package uses a FLAT structure. Upload ALL files from the unzipped folder directly to the root of your place-of-art repository.

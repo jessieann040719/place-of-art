@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Studio Policy | Place of Art</title>
 <meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
 <link rel="stylesheet" href="styles.css">
@@ -10,11 +10,12 @@
 <body>
 
 <header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="brand-wrap">
-      <span class="brand">PLACE OF ART</span>
-      <span class="brand-sub">Tattoo Shop & Gallery</span>
+  <nav class="nav-shell">
+    <a class="brand" href="index.html">
+      <span>PLACE OF ART</span>
+      <small>TATTOO SHOP & GALLERY</small>
     </a>
+    <button class="mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
     <div class="nav-links">
       <a href="artists.html">Artists</a>
       <a href="booking.html">Booking</a>
@@ -24,66 +25,30 @@
       <a href="news-events.html">News & Events</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="booking.html" class="book">Book Now</a>
+      <a class="nav-book" href="booking.html">Book Now</a>
     </div>
   </nav>
 </header>
 
 
-<section class="page-hero"><div class="inner"><div class="eyebrow">Studio Rules</div><h1>Studio Policy</h1><p>Please review these policies before submitting an appointment request.</p></div></section>
+<section class="page-hero"><div class="container"><div class="kicker">Studio Rules</div><h1>Studio Policy</h1><p>Please review before submitting a tattoo request.</p></div></section>
 <section class="section"><div class="container prose">
-<p class="legal-note"><strong>Important:</strong> This is a professionally structured studio-policy template, not legal advice. Before relying on it as your final legal document, have the final wording and your digital consent workflow reviewed for your Oklahoma business.</p>
-
-<h2>Age & Identification</h2>
-<p>Place of Art provides tattoo services to clients age 18 and older only. A valid government-issued photo ID showing the client's identity and date of birth is required before tattooing. Tattoo procedures will not be performed on a person under 18 years of age.</p>
-
-<h2>Ability to Consent</h2>
-<p>Clients must be able to provide informed consent. Place of Art will not tattoo a person who appears impaired by alcohol or controlled substances or otherwise unable to understand the procedure, risks and aftercare instructions.</p>
-
-<h2>Appointment Requests & Confirmation</h2>
-<p>Submitting an online booking form creates an appointment request only. Selecting an available date and time does not guarantee the appointment. A request becomes confirmed only after Place of Art or the selected artist accepts it. The studio may propose a different artist, date, time or appointment length when necessary.</p>
-
-<h2>Deposits</h2>
-<p>A $50 non-refundable deposit is required for most appointments. Appointments priced at $500 or more require a $100 non-refundable deposit. Deposits are credited toward the tattoo price when the appointment is completed as scheduled. Large-scale, sleeve and other custom projects may display the total tattoo price as Custom / TBD until the artist reviews the project.</p>
-
-<h2>Rescheduling, Cancellations & No-Shows</h2>
-<p>Please provide at least 48 hours notice when requesting to reschedule. Deposits are non-refundable. Late cancellations, failure to appear, repeated rescheduling or insufficient notice may result in forfeiture of the deposit and may require a new deposit before another appointment is scheduled.</p>
-
-<h2>Late Arrivals</h2>
-<p>Arriving late may reduce the tattooing time available or require the appointment to be rescheduled when the delay would affect another client's appointment or the artist's schedule.</p>
-
-<h2>Design Changes</h2>
-<p>Reference images are used for direction and inspiration. The artist may adapt scale, composition, placement or details so the tattoo works appropriately for the body and the artist's style. Significant changes to the requested design, size, quantity or placement may change the price and appointment length and may require rescheduling.</p>
-
-<h2>Pricing</h2>
-<p>Website prices are starting or category prices unless a fixed price is specifically stated. Final pricing may vary based on size, placement, detail, complexity, color, shading and time required. Custom sleeves, large-scale work and some highly detailed projects are priced individually.</p>
-
-<h2>Health, Skin Condition & Safety</h2>
-<p>Clients may be asked to complete health-history and release/consent documentation before the procedure. The studio may postpone or refuse tattooing when skin is visibly irritated, injured or infected, when a client cannot provide valid consent, or when proceeding would conflict with applicable health and safety requirements.</p>
-
-<h2>Client Records & Written Consent</h2>
-<p>Required client, identification, procedure and consent records are treated as confidential studio records. Online booking information does not replace any written consent, release, identification verification or other documentation required before tattooing.</p>
-
-<h2>Reference Images & Intellectual Property</h2>
-<p>Clients should upload reference material they are permitted to share. A reference image does not guarantee an exact copy. Place of Art and its artists may decline requests that would improperly reproduce another artist's protected work or that the artist is not comfortable performing.</p>
-
-<h2>Photography & Portfolio Use</h2>
-<p>Photography for the studio's portfolio, website, social media or marketing should be based on the client's consent. Permission to use identifiable client imagery is separate from submitting a booking request.</p>
-
-<h2>Touch-Ups</h2>
-<p>Touch-up eligibility, timing and cost depend on the tattoo, healing, aftercare and artist. Touch-ups related to normal healing are evaluated by the original artist. Design changes, additional work, fading caused by improper aftercare or other damage are not automatically considered complimentary touch-ups.</p>
-
-<h2>Right to Refuse or Stop Service</h2>
-<p>Place of Art may decline, postpone or stop a service when reasonably necessary for safety, legal compliance, inability to obtain informed consent, abusive or threatening conduct, unrealistic project expectations or other legitimate business reasons permitted by law.</p>
-
-<h2>Studio & Online Booking Hours</h2>
-<p>Online appointment requests are offered Monday through Saturday between 9:00 AM and 5:00 PM, subject to artist availability. Sunday is closed. Jessie-Ann Odell's online request window for small tattoos is 9:00 AM to 1:00 PM. Large tattoo projects with Jessie-Ann begin at 9:00 AM.</p>
+<div class="notice">Professional studio-policy template only; have the final wording and digital consent workflow reviewed for your Oklahoma business before relying on it as legal advice.</div>
+<h2>Age & Identification</h2><p>Tattoo services are for clients age 18 and older. Valid government-issued photo identification is required before tattooing.</p>
+<h2>Appointment Requests</h2><p>An online submission is a request only. The appointment becomes confirmed only after Place of Art or the selected artist accepts it.</p>
+<h2>Deposits</h2><p>A $50 non-refundable deposit is required for most appointments. Appointments priced at $500 or more require a $100 non-refundable deposit. Deposits are credited toward the tattoo when the appointment is completed as scheduled.</p>
+<h2>Rescheduling & No-Shows</h2><p>Please give at least 48 hours notice to reschedule. Late cancellations, no-shows or repeated rescheduling may result in forfeiture of the deposit and a new deposit being required.</p>
+<h2>Pricing & Design Changes</h2><p>Website prices may be starting prices. Final pricing can vary with size, placement, detail, complexity, color, shading and time. Significant design changes may change the price or appointment length.</p>
+<h2>Ability to Consent & Safety</h2><p>The studio may decline or postpone service when a client cannot provide informed consent, appears impaired, or when tattooing would conflict with applicable health and safety requirements.</p>
+<h2>Reference Images</h2><p>Reference images are used for direction and inspiration. Submission does not guarantee an exact copy. Artists may adapt composition, size and placement or decline work they are not comfortable performing.</p>
+<h2>Photography</h2><p>Portfolio or marketing use of identifiable client images should be based on separate client permission.</p>
+<h2>Right to Refuse Service</h2><p>Place of Art may decline, postpone or stop service for legitimate safety, legal, conduct or business reasons permitted by law.</p>
 </div></section>
 
 
 <footer class="footer">
-  <strong>PLACE OF ART</strong>
-  Tattoo Shop & Gallery
+  <div class="footer-brand">PLACE OF ART</div>
+  <div>Tattoo Shop & Gallery · Poteau, Oklahoma</div>
   <div class="footer-links">
     <a href="policy.html">Studio Policy</a>
     <a href="privacy.html">Privacy</a>
@@ -92,6 +57,7 @@
     <a href="admin.html">Artist Login</a>
   </div>
 </footer>
+<script src="site.js"></script>
 
 
 </body>

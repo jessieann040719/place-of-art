@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Jessie-Ann Odell | Place of Art</title>
 <meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
 <link rel="stylesheet" href="styles.css">
@@ -10,11 +10,12 @@
 <body>
 
 <header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="brand-wrap">
-      <span class="brand">PLACE OF ART</span>
-      <span class="brand-sub">Tattoo Shop & Gallery</span>
+  <nav class="nav-shell">
+    <a class="brand" href="index.html">
+      <span>PLACE OF ART</span>
+      <small>TATTOO SHOP & GALLERY</small>
     </a>
+    <button class="mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
     <div class="nav-links">
       <a href="artists.html">Artists</a>
       <a href="booking.html">Booking</a>
@@ -24,40 +25,20 @@
       <a href="news-events.html">News & Events</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="booking.html" class="book">Book Now</a>
+      <a class="nav-book" href="booking.html">Book Now</a>
     </div>
   </nav>
 </header>
 
 
-<section class="page-hero"><div class="inner"><div class="eyebrow">Artist Profile</div><h1>Jessie-Ann Odell</h1><p>Realism · Fine Line · Micro Realism · 10+ Years Experience</p></div></section>
-<section class="section"><div class="container"><div class="grid-2">
-  <div class="artist-photo">Add Jessie-Ann Odell Portrait</div>
-  <div class="card"><h3>Biography</h3><p>Jessie-Ann has been tattooing professionally since 2016 and has been deeply connected to art for as long as she can remember. Her work focuses on Realism, Fine Line and Micro Realism, with an emphasis on detail, composition and creating pieces that feel personal to the client.</p>
-  <a class="btn fill" href="booking.html?artist=jessie-ann-odell">Book with Jessie-Ann Odell</a>
-  </div>
-</div></div></section>
-<section class="section alt"><div class="container"><div class="section-title"><div class="eyebrow">Selected Work</div><h2>Jessie-Ann Odell Portfolio</h2><p>A selection of tattoo work by Jessie-Ann Odell.</p></div>
-<div class="gallery-grid jessie-portfolio">
-  <img src="IMG_4321.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4322.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4323.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4324.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4325.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4326.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4327.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4328.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4329.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4330.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4332.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4333.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-  <img src="IMG_4334.jpg" alt="Tattoo by Jessie-Ann Odell" loading="lazy">
-</div></div></section>
+<section class="page-hero"><div class="container reveal-left"><div class="kicker">Artist Profile</div><h1>Jessie-Ann Odell</h1><p>Realism · Fine Line · Micro Realism · 10+ Years Experience</p></div></section>
+<section class="section"><div class="container grid-2"><div class="card reveal"><h3>Biography</h3><p>Jessie-Ann has been tattooing professionally since 2016 and has been deeply connected to art for as long as she can remember. Her work focuses on Realism, Fine Line and Micro Realism, with an emphasis on detail, composition and creating pieces that feel personal to the client.</p><a class="btn fill" href="booking.html?artist=jessie-ann-odell">Book with Jessie-Ann</a></div><div class="card reveal"><h3>Specialties</h3><p>Realism<br>Fine Line<br>Micro Realism</p></div></div></section>
+<section class="section alt"><div class="container"><div class="section-head"><div class="kicker">Selected Work</div><h2>Jessie-Ann Odell Portfolio</h2></div><div class="gallery"><img class="reveal" src="IMG_4321.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4322.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4323.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4324.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4325.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4326.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4327.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4328.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4329.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4330.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4332.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4333.jpg" alt="Tattoo by Jessie-Ann Odell"><img class="reveal" src="IMG_4334.jpg" alt="Tattoo by Jessie-Ann Odell"></div></div></section>
 
 
 <footer class="footer">
-  <strong>PLACE OF ART</strong>
-  Tattoo Shop & Gallery
+  <div class="footer-brand">PLACE OF ART</div>
+  <div>Tattoo Shop & Gallery · Poteau, Oklahoma</div>
   <div class="footer-links">
     <a href="policy.html">Studio Policy</a>
     <a href="privacy.html">Privacy</a>
@@ -66,6 +47,7 @@
     <a href="admin.html">Artist Login</a>
   </div>
 </footer>
+<script src="site.js"></script>
 
 
 </body>

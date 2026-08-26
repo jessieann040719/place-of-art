@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aftercare | Place of Art</title>
 <meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
 <link rel="stylesheet" href="styles.css">
@@ -10,11 +10,12 @@
 <body>
 
 <header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="brand-wrap">
-      <span class="brand">PLACE OF ART</span>
-      <span class="brand-sub">Tattoo Shop & Gallery</span>
+  <nav class="nav-shell">
+    <a class="brand" href="index.html">
+      <span>PLACE OF ART</span>
+      <small>TATTOO SHOP & GALLERY</small>
     </a>
+    <button class="mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
     <div class="nav-links">
       <a href="artists.html">Artists</a>
       <a href="booking.html">Booking</a>
@@ -24,23 +25,19 @@
       <a href="news-events.html">News & Events</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="booking.html" class="book">Book Now</a>
+      <a class="nav-book" href="booking.html">Book Now</a>
     </div>
   </nav>
 </header>
 
 
-<section class="page-hero"><div class="inner"><div class="eyebrow">Healing</div><h1>Aftercare</h1><p>Follow the specific aftercare instructions your artist provides for your tattoo.</p></div></section>
-<section class="section"><div class="container prose">
-<h2>General Aftercare</h2>
-<p>Keep your tattoo clean, avoid unnecessary touching, follow your artist's bandage instructions, and avoid soaking the tattoo while it heals. Do not pick or scratch peeling skin. Protect healing tattoos from unnecessary sun exposure and use only products your artist recommends for your situation.</p>
-<div class="notice">Replace this general section with Place of Art's exact written aftercare protocol before publishing it as the studio's official aftercare instructions.</div>
-</div></section>
+<section class="page-hero"><div class="container"><div class="kicker">Healing</div><h1>Aftercare</h1></div></section>
+<section class="section"><div class="container prose"><h2>General Aftercare</h2><p>Follow the specific aftercare instructions your artist provides. Keep the tattoo clean, avoid unnecessary touching or soaking during healing, and do not pick or scratch peeling skin.</p><div class="notice">Replace this general section with Place of Art's exact written aftercare protocol before treating it as the studio's official aftercare instructions.</div></div></section>
 
 
 <footer class="footer">
-  <strong>PLACE OF ART</strong>
-  Tattoo Shop & Gallery
+  <div class="footer-brand">PLACE OF ART</div>
+  <div>Tattoo Shop & Gallery · Poteau, Oklahoma</div>
   <div class="footer-links">
     <a href="policy.html">Studio Policy</a>
     <a href="privacy.html">Privacy</a>
@@ -49,6 +46,7 @@
     <a href="admin.html">Artist Login</a>
   </div>
 </footer>
+<script src="site.js"></script>
 
 
 </body>

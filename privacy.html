@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy | Place of Art</title>
 <meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
 <link rel="stylesheet" href="styles.css">
@@ -10,11 +10,12 @@
 <body>
 
 <header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="brand-wrap">
-      <span class="brand">PLACE OF ART</span>
-      <span class="brand-sub">Tattoo Shop & Gallery</span>
+  <nav class="nav-shell">
+    <a class="brand" href="index.html">
+      <span>PLACE OF ART</span>
+      <small>TATTOO SHOP & GALLERY</small>
     </a>
+    <button class="mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
     <div class="nav-links">
       <a href="artists.html">Artists</a>
       <a href="booking.html">Booking</a>
@@ -24,40 +25,19 @@
       <a href="news-events.html">News & Events</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="booking.html" class="book">Book Now</a>
+      <a class="nav-book" href="booking.html">Book Now</a>
     </div>
   </nav>
 </header>
 
 
-<section class="page-hero"><div class="inner"><div class="eyebrow">Privacy</div><h1>Privacy Policy</h1><p>How Place of Art handles information submitted through the website.</p></div></section>
-<section class="section"><div class="container prose">
-<h2>Information We Collect</h2>
-<p>Appointment requests may collect your full name, date of birth, email address, phone number, tattoo description, placement, selected artist, requested date and time, and one or more reference images. Payment information should be processed directly by the connected payment provider rather than stored in public website files.</p>
-
-<h2>How Information Is Used</h2>
-<p>Information may be used to evaluate tattoo requests, communicate with clients, plan designs, schedule appointments, process deposits, maintain appropriate studio records and provide tattoo services.</p>
-
-<h2>Reference Images</h2>
-<p>Reference images submitted for a tattoo request are used to evaluate and prepare for the requested project. They should be treated as private client-submitted material unless the client separately authorizes another use.</p>
-
-<h2>Access & Sharing</h2>
-<p>Booking information may be accessible to authorized Place of Art artists and staff who need it for scheduling or service delivery. Information may also be processed by hosting, database, communication and payment providers used to operate the website. Information may be disclosed when required by law or a regulatory authority.</p>
-
-<h2>Security</h2>
-<p>Live client records should be stored in a secured backend with account access controls. Full payment-card information should never be stored in this GitHub website and should instead be handled by a compliant payment provider such as Stripe or Square.</p>
-
-<h2>Retention</h2>
-<p>Client and procedure records should be retained for the period required by applicable law and studio recordkeeping obligations. Reference images and ordinary booking communications may be deleted when they are no longer reasonably needed, subject to recordkeeping requirements.</p>
-
-<h2>Contact</h2>
-<p>Privacy questions can be directed to Place of Art Tattoo Shop & Gallery, 319 Dewey Ave, Poteau, Oklahoma 74953, phone (918) 564-4741.</p>
-</div></section>
+<section class="page-hero"><div class="container"><div class="kicker">Privacy</div><h1>Privacy Policy</h1><p>How information submitted through the website is handled.</p></div></section>
+<section class="section"><div class="container prose"><h2>Information Collected</h2><p>Booking requests may collect name, date of birth, email, phone number, tattoo details, placement, selected artist, requested time and reference images.</p><h2>Use</h2><p>Information is used to evaluate requests, communicate, plan tattoos, schedule appointments, process deposits and maintain appropriate studio records.</p><h2>Security</h2><p>Live client records should be stored in a secured backend with account controls. Full card information must not be stored in GitHub files and should be handled by a compliant payment provider.</p><h2>Contact</h2><p>Place of Art Tattoo Shop & Gallery · 319 Dewey Ave, Poteau, OK 74953 · (918) 564-4741.</p></div></section>
 
 
 <footer class="footer">
-  <strong>PLACE OF ART</strong>
-  Tattoo Shop & Gallery
+  <div class="footer-brand">PLACE OF ART</div>
+  <div>Tattoo Shop & Gallery · Poteau, Oklahoma</div>
   <div class="footer-links">
     <a href="policy.html">Studio Policy</a>
     <a href="privacy.html">Privacy</a>
@@ -66,6 +46,7 @@
     <a href="admin.html">Artist Login</a>
   </div>
 </footer>
+<script src="site.js"></script>
 
 
 </body>

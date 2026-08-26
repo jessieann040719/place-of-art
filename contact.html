@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Contact | Place of Art</title>
 <meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
 <link rel="stylesheet" href="styles.css">
@@ -10,11 +10,12 @@
 <body>
 
 <header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="brand-wrap">
-      <span class="brand">PLACE OF ART</span>
-      <span class="brand-sub">Tattoo Shop & Gallery</span>
+  <nav class="nav-shell">
+    <a class="brand" href="index.html">
+      <span>PLACE OF ART</span>
+      <small>TATTOO SHOP & GALLERY</small>
     </a>
+    <button class="mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
     <div class="nav-links">
       <a href="artists.html">Artists</a>
       <a href="booking.html">Booking</a>
@@ -24,31 +25,19 @@
       <a href="news-events.html">News & Events</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="booking.html" class="book">Book Now</a>
+      <a class="nav-book" href="booking.html">Book Now</a>
     </div>
   </nav>
 </header>
 
 
-<section class="page-hero"><div class="inner"><div class="eyebrow">Contact</div><h1>Get in Touch</h1><p>Place of Art Tattoo Shop & Gallery</p></div></section>
-<section class="section"><div class="container"><div class="grid-2">
-  <div class="card">
-    <h3>Place of Art</h3>
-    <p><strong>Tattoo Shop & Gallery</strong></p>
-    <p style="margin-top:14px">319 Dewey Ave<br>Poteau, Oklahoma 74953</p>
-    <p style="margin-top:14px">Phone: <a href="tel:+19185644741">(918) 564-4741</a></p>
-  </div>
-  <div class="card">
-    <h3>Hours & Booking</h3>
-    <p>Online appointment requests are available Monday through Saturday between 9:00 AM and 5:00 PM, subject to artist availability and approval. Sunday is closed.</p>
-    <a class="btn fill" href="booking.html">Request Appointment</a>
-  </div>
-</div></div></section>
+<section class="page-hero"><div class="container reveal-left"><div class="kicker">Contact</div><h1>Get in Touch</h1><p>Place of Art Tattoo Shop & Gallery</p></div></section>
+<section class="section"><div class="container grid-2"><div class="card reveal"><h3>Place of Art</h3><p><strong>Tattoo Shop & Gallery</strong></p><p style="margin-top:14px">319 Dewey Ave<br>Poteau, Oklahoma 74953</p><p style="margin-top:14px">Phone: <a href="tel:+19185644741">(918) 564-4741</a></p></div><div class="card reveal"><h3>Booking Hours</h3><p>Monday–Saturday: online requests between 9:00 AM and 5:00 PM, subject to artist availability and approval.<br>Sunday: Closed.</p><a class="btn fill" href="booking.html">Request Appointment</a></div></div></section>
 
 
 <footer class="footer">
-  <strong>PLACE OF ART</strong>
-  Tattoo Shop & Gallery
+  <div class="footer-brand">PLACE OF ART</div>
+  <div>Tattoo Shop & Gallery · Poteau, Oklahoma</div>
   <div class="footer-links">
     <a href="policy.html">Studio Policy</a>
     <a href="privacy.html">Privacy</a>
@@ -57,6 +46,7 @@
     <a href="admin.html">Artist Login</a>
   </div>
 </footer>
+<script src="site.js"></script>
 
 
 </body>

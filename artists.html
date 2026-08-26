@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Artists | Place of Art</title>
 <meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
 <link rel="stylesheet" href="styles.css">
@@ -10,11 +10,12 @@
 <body>
 
 <header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="brand-wrap">
-      <span class="brand">PLACE OF ART</span>
-      <span class="brand-sub">Tattoo Shop & Gallery</span>
+  <nav class="nav-shell">
+    <a class="brand" href="index.html">
+      <span>PLACE OF ART</span>
+      <small>TATTOO SHOP & GALLERY</small>
     </a>
+    <button class="mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
     <div class="nav-links">
       <a href="artists.html">Artists</a>
       <a href="booking.html">Booking</a>
@@ -24,34 +25,19 @@
       <a href="news-events.html">News & Events</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="booking.html" class="book">Book Now</a>
+      <a class="nav-book" href="booking.html">Book Now</a>
     </div>
   </nav>
 </header>
 
 
-<section class="page-hero"><div class="inner"><div class="eyebrow">Our Team</div><h1>Artists</h1><p>Click an artist to view their biography and portfolio. Jaycee McKinney is currently an apprentice and is not available for online booking.</p></div></section>
-<section class="section"><div class="container"><div class="grid-3"><a class="card artist-card card-link" href="artist-jessie-ann-odell.html">
-      <div class="artist-photo">Add Jessie-Ann Odell Photo</div>
-      <div class="artist-body"><h3>Jessie-Ann Odell</h3><p>Realism · Fine Line · Micro Realism</p><div class="artist-meta">10+ Years Experience</div><span class="btn">View Profile</span></div>
-    </a><a class="card artist-card card-link" href="artist-ian-odell.html">
-      <div class="artist-photo">Add Ian Odell Photo</div>
-      <div class="artist-body"><h3>Ian Odell</h3><p>Fine Line · Realism · Blackwork</p><div class="artist-meta">8 Years Experience</div><span class="btn">View Profile</span></div>
-    </a><a class="card artist-card card-link" href="artist-taylor-paige-graham.html">
-      <div class="artist-photo">Add Taylor Paige Graham Photo</div>
-      <div class="artist-body"><h3>Taylor Paige Graham</h3><p>Fine Line · Traditional</p><div class="artist-meta">2+ Years Experience</div><span class="btn">View Profile</span></div>
-    </a><a class="card artist-card card-link" href="artist-vivian-howerton.html">
-      <div class="artist-photo">Add Vivian Howerton Photo</div>
-      <div class="artist-body"><h3>Vivian Howerton</h3><p>Traditional · Cyberpunk · Native Ornamental</p><div class="artist-meta">1 Year Experience</div><span class="btn">View Profile</span></div>
-    </a><a class="card artist-card card-link" href="artist-jaycee-mckinney.html">
-      <div class="artist-photo">Add Jaycee McKinney Photo</div>
-      <div class="artist-body"><h3>Jaycee McKinney</h3><p>Apprentice</p><div class="artist-meta">Tattoo Apprentice</div><span class="btn">View Apprentice Profile</span></div>
-    </a></div></div></section>
+<section class="page-hero"><div class="container reveal-left"><div class="kicker">Our Team</div><h1>Artists</h1><p>Click an artist to view their biography and portfolio. Jaycee is currently an apprentice and is not available for online booking.</p></div></section>
+<section class="section"><div class="container"><div class="grid-3"><a class="card reveal" href="artist-jessie-ann-odell.html"><h3>Jessie-Ann Odell</h3><p>Realism · Fine Line · Micro Realism</p><div class="kicker" style="margin-top:12px">10+ Years Experience</div><span class="btn" style="margin-top:18px">View Profile</span></a><a class="card reveal" href="artist-ian-odell.html"><h3>Ian Odell</h3><p>Fine Line · Realism · Blackwork</p><div class="kicker" style="margin-top:12px">8 Years Experience</div><span class="btn" style="margin-top:18px">View Profile</span></a><a class="card reveal" href="artist-taylor-paige-graham.html"><h3>Taylor Paige Graham</h3><p>Fine Line · Traditional</p><div class="kicker" style="margin-top:12px">2+ Years Experience</div><span class="btn" style="margin-top:18px">View Profile</span></a><a class="card reveal" href="artist-vivian-howerton.html"><h3>Vivian Howerton</h3><p>Traditional · Cyberpunk · Native Ornamental</p><div class="kicker" style="margin-top:12px">1 Year Experience</div><span class="btn" style="margin-top:18px">View Profile</span></a><a class="card reveal" href="artist-jaycee-mckinney.html"><h3>Jaycee McKinney</h3><p>Apprentice</p><div class="kicker" style="margin-top:12px">Tattoo Apprentice</div><span class="btn" style="margin-top:18px">View Profile</span></a></div></div></section>
 
 
 <footer class="footer">
-  <strong>PLACE OF ART</strong>
-  Tattoo Shop & Gallery
+  <div class="footer-brand">PLACE OF ART</div>
+  <div>Tattoo Shop & Gallery · Poteau, Oklahoma</div>
   <div class="footer-links">
     <a href="policy.html">Studio Policy</a>
     <a href="privacy.html">Privacy</a>
@@ -60,6 +46,7 @@
     <a href="admin.html">Artist Login</a>
   </div>
 </footer>
+<script src="site.js"></script>
 
 
 </body>
