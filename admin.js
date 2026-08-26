@@ -1,111 +1,54 @@
-import { SUPABASE_URL, SUPABASE_ANON_KEY, DEMO_MODE } from "./config.js";
 
-const artistColors = {
-  "Jessie-Ann Odell": "#b8865e",
-  "Taylor Paige Graham": "#8f6d55",
-  "Vivian Howerton": "#806c8c",
-  "Ian Odel": "#667e7a"
-};
-
-const demoRequests = [
-  {
-    id: "r1", client_name: "Sample Client", artist_name: "Jessie-Ann Odell",
-    tattoo_type: "Fine Line Tattoo", size_option: "2–3 inch",
-    requested_start: new Date(Date.now()+86400000*2).toISOString(),
-    deposit_paid: 50, total_price: 200, status: "pending"
-  },
-  {
-    id: "r2", client_name: "Sample Client 2", artist_name: "Taylor Paige Graham",
-    tattoo_type: "Fine Line Bundle", size_option: "0.5–1 inch · 3 tattoos",
-    requested_start: new Date(Date.now()+86400000*4).toISOString(),
-    deposit_paid: 50, total_price: 300, status: "pending"
-  },
-  {
-    id: "r3", client_name: "Large Project", artist_name: "Vivian Howerton",
-    tattoo_type: "Large Tattoo", size_option: "Custom",
-    requested_start: new Date(Date.now()+86400000*7).toISOString(),
-    deposit_paid: 100, total_price: null, status: "pending"
-  }
-];
-
-const demoEvents = [
-  {title:"Fine Line · Jessie-Ann", start:new Date(Date.now()+86400000).toISOString().slice(0,10)+"T10:00:00", end:new Date(Date.now()+86400000).toISOString().slice(0,10)+"T12:00:00", backgroundColor:artistColors["Jessie-Ann Odell"], borderColor:artistColors["Jessie-Ann Odell"]},
-  {title:"Traditional · Taylor", start:new Date(Date.now()+86400000*3).toISOString().slice(0,10)+"T13:00:00", end:new Date(Date.now()+86400000*3).toISOString().slice(0,10)+"T15:00:00", backgroundColor:artistColors["Taylor Paige Graham"], borderColor:artistColors["Taylor Paige Graham"]},
-  {title:"Custom · Ian", start:new Date(Date.now()+86400000*5).toISOString().slice(0,10)+"T11:00:00", end:new Date(Date.now()+86400000*5).toISOString().slice(0,10)+"T14:00:00", backgroundColor:artistColors["Ian Odel"], borderColor:artistColors["Ian Odel"]}
-];
-
-const loginView = document.getElementById("loginView");
-const dashboardView = document.getElementById("dashboardView");
-const loginBtn = document.getElementById("loginBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-const requestsEl = document.getElementById("requests");
-let calendar;
-
-function money(v){
-  return v == null ? "Custom / TBD" : `$${Number(v).toFixed(0)}`;
+const colors={"Jessie-Ann Odell":"#b8865e","Ian Odell":"#667e7a","Taylor Paige Graham":"#8f6d55","Vivian Howerton":"#806c8c","Jaycee McKinney":"#9b8068"};
+function load(){
+ let rows=[];try{rows=JSON.parse(localStorage.getItem("poa_demo_requests")||"[]")}catch(e){}
+ if(!rows.length){
+   rows=[
+    {id:"DEMO-1",status:"pending",client_name:"Sample Client",artist_name:"Jessie-Ann Odell",tattoo_type:"Fine Line Tattoo",size_option:"2–3 inch",requested_date:"2026-09-02",requested_time:"10:00 AM",duration_minutes:90,deposit_due:50,deposit_paid:50,total_price:200,description:"Sample request"},
+    {id:"DEMO-2",status:"pending",client_name:"Sample Large Project",artist_name:"Ian Odell",tattoo_type:"Large Tattoo",size_option:null,requested_date:"2026-09-04",requested_time:"9:00 AM",duration_minutes:null,deposit_due:100,deposit_paid:100,total_price:null,description:"Custom large piece"}
+   ];
+ }
+ return rows;
 }
-
-function renderRequests(rows){
-  requestsEl.innerHTML = rows.filter(r=>r.status==="pending").map(r=>`
-    <article class="request-card" data-id="${r.id}">
-      <h3>${r.client_name}</h3>
-      <p><strong>Artist:</strong> ${r.artist_name}</p>
-      <p><strong>Tattoo:</strong> ${r.tattoo_type}</p>
-      <p><strong>Option:</strong> ${r.size_option || "Custom"}</p>
-      <p><strong>Requested:</strong> ${new Date(r.requested_start).toLocaleString()}</p>
-      <p><strong>Deposit paid:</strong> <span class="money">$${Number(r.deposit_paid||0).toFixed(0)}</span></p>
-      <p><strong>Total tattoo price:</strong> <span class="money">${money(r.total_price)}</span></p>
-      <div class="row-actions">
-        <button class="small-btn accept" data-action="accept" type="button">Accept</button>
-        <button class="small-btn" data-action="decline" type="button">Decline</button>
-      </div>
-    </article>
-  `).join("") || `<div class="card"><h3>No pending requests</h3><p>You're caught up.</p></div>`;
-
-  requestsEl.querySelectorAll("button[data-action]").forEach(btn=>{
-    btn.addEventListener("click", async ()=>{
-      const card = btn.closest("[data-id]");
-      const id = card.dataset.id;
-      const action = btn.dataset.action;
-      if (DEMO_MODE){
-        card.remove();
-        return;
-      }
-      alert("Supabase action will run here after your project keys are added.");
+function save(rows){localStorage.setItem("poa_demo_requests",JSON.stringify(rows))}
+function money(v){return v==null?"Custom / TBD":"$"+Number(v).toFixed(0)}
+document.getElementById("demoLogin").onclick=()=>{document.getElementById("loginCard").style.display="none";document.getElementById("dashboard").style.display="block";render()};
+function render(){
+ const rows=load();
+ document.getElementById("requestRows").innerHTML=rows.map(r=>`<tr>
+  <td><span class="status ${r.status}">${r.status}</span></td>
+  <td>${r.client_name}<br><small>${r.phone||""}</small></td>
+  <td>${r.artist_name}</td>
+  <td>${r.tattoo_type}<br><small>${r.size_option||"Custom"}${r.tattoo_count?` · ${r.tattoo_count} tattoo(s)`:""}</small></td>
+  <td>${r.requested_date}<br>${r.requested_time}</td>
+  <td>$${Number(r.deposit_due||0).toFixed(0)}</td>
+  <td>$${Number(r.deposit_paid||0).toFixed(0)}</td>
+  <td>${money(r.total_price)}</td>
+  <td><button class="btn" data-info="${r.id}" type="button">View</button></td>
+  <td>${r.status==="pending"?`<button class="btn" data-act="accepted" data-id="${r.id}" type="button">Accept</button> <button class="btn danger" data-act="declined" data-id="${r.id}" type="button">Decline</button>`:"—"}</td>
+ </tr>`).join("")||'<tr><td colspan="10">No requests.</td></tr>';
+ document.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{
+   const list=load(),r=list.find(x=>x.id===b.dataset.id);if(r){r.status=b.dataset.act;save(list);render();}
+ });
+ document.querySelectorAll("[data-info]").forEach(b=>b.onclick=()=>{
+   const r=load().find(x=>x.id===b.dataset.info);if(!r)return;
+   alert(`Client: ${r.client_name}\nDOB: ${r.dob||""}\nEmail: ${r.email||""}\nPhone: ${r.phone||""}\nPlacement: ${r.placement||""}\nDescription: ${r.description||""}\nReference files: ${(r.reference_files||[]).join(", ")}`);
+ });
+ renderWeek(rows);
+}
+function renderWeek(rows){
+ const days=["Mon","Tue","Wed","Thu","Fri","Sat"];
+ let html='<div class="week-grid"><div class="week-head">Time</div>'+days.map(d=>`<div class="week-head">${d}</div>`).join("");
+ for(let h=9;h<=16;h++){
+  const suffix=h>=12?"PM":"AM",hr=((h+11)%12)+1;
+  html+=`<div class="time-label">${hr}:00 ${suffix}</div>`;
+  for(let i=1;i<=6;i++){
+    const items=rows.filter(r=>{
+      const d=new Date(r.requested_date+"T12:00:00");
+      return d.getDay()===i && r.status!=="declined" && r.requested_time.startsWith(hr+":00") && r.requested_time.endsWith(suffix);
     });
-  });
-}
-
-function openDashboard(){
-  loginView.classList.add("hidden");
-  dashboardView.classList.remove("hidden");
-  if (!calendar){
-    calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
-      initialView: "dayGridMonth",
-      height: "auto",
-      headerToolbar: {left:"prev,next today",center:"title",right:"dayGridMonth,timeGridWeek,timeGridDay"},
-      events: DEMO_MODE ? demoEvents : [],
-      eventClick(info){
-        alert(info.event.title + "\n" + info.event.start.toLocaleString());
-      }
-    });
-    calendar.render();
+    html+=`<div>${items.map(r=>`<div class="event-chip" style="background:${colors[r.artist_name]||"#6a594a"}">${r.client_name}<br>${r.status}</div>`).join("")}</div>`;
   }
-  renderRequests(DEMO_MODE ? demoRequests : []);
-}
-
-loginBtn.addEventListener("click", ()=>{
-  if (DEMO_MODE){
-    openDashboard();
-  } else {
-    alert("Connect Supabase first using config.js.");
-  }
-});
-logoutBtn.addEventListener("click", ()=>{
-  dashboardView.classList.add("hidden");
-  loginView.classList.remove("hidden");
-});
-
-if (DEMO_MODE){
-  document.getElementById("loginMessage").textContent = "Demo mode: click Sign In to preview the shared calendar and approval workflow.";
+ }
+ html+="</div>";document.getElementById("weekCalendar").innerHTML=html;
 }

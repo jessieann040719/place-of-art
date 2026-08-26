@@ -1,95 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Artist Dashboard | Place of Art</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.css">
-  <style>
-    .admin-shell{max-width:1280px;margin:auto;padding:32px 20px 70px}
-    .admin-top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:24px}
-    .admin-title h1{font-family:Georgia,serif;font-weight:400;font-size:2.5rem}
-    .admin-title p{color:#b9a895}
-    .login-card,.dashboard-card{background:#17100c;border:1px solid rgba(223,189,145,.22);padding:24px}
-    .login-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:680px}
-    .login-grid .full{grid-column:1/-1}
-    .admin-actions{display:flex;gap:10px;flex-wrap:wrap}
-    .badge{display:inline-block;padding:6px 10px;border:1px solid rgba(223,189,145,.28);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
-    .legend{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 20px}
-    .legend-item{display:flex;align-items:center;gap:7px;color:#c8b7a5;font-size:.85rem}
-    .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-    .jessie{background:#b8865e}.taylor{background:#8f6d55}.vivian{background:#806c8c}.ian{background:#667e7a}
-    #calendar{background:#f6eee4;color:#1a110c;padding:12px;border-radius:2px}
-    .request-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-    .request-card{background:#17100c;border:1px solid rgba(223,189,145,.22);padding:18px}
-    .request-card h3{font-family:Georgia,serif;font-weight:400;color:#dfbd91}
-    .request-card p{color:#b9a895;font-size:.9rem;margin-top:5px}
-    .money{color:#efe2d1;font-weight:700}
-    .row-actions{display:flex;gap:8px;margin-top:14px}
-    .small-btn{padding:9px 12px;border:1px solid #c59664;background:transparent;color:#efe2d1;cursor:pointer}
-    .small-btn.accept{background:#dfbd91;color:#1a110c}
-    .hidden{display:none!important}
-    @media(max-width:900px){.request-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:620px){.login-grid,.request-grid{grid-template-columns:1fr}.login-grid .full{grid-column:auto}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Artist Dashboard | Place of Art</title>
+<meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
 <header class="site-header">
   <nav class="nav">
-    <a class="brand" href="index.html">PLACE OF ART</a>
-    <div class="nav-links"><a href="index.html">Website</a><a class="book" href="admin.html">Artist Login</a></div>
+    <a href="index.html" class="brand-wrap">
+      <span class="brand">PLACE OF ART</span>
+      <span class="brand-sub">Tattoo Shop & Gallery</span>
+    </a>
+    <div class="nav-links">
+      <a href="artists.html">Artists</a>
+      <a href="booking.html">Booking</a>
+      <a href="the-shop.html">The Shop</a>
+      <a href="art-gallery.html">Art Gallery</a>
+      <a href="healed.html">Healed</a>
+      <a href="news-events.html">News & Events</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html" class="book">Book Now</a>
+    </div>
   </nav>
 </header>
 
-<main class="admin-shell">
-  <div id="loginView" class="login-card">
-    <div class="admin-title">
-      <div class="eyebrow">Private Team Access</div>
-      <h1>Artist Login</h1>
-      <p>Each artist signs in with their own account. This page becomes live after Supabase is connected.</p>
+
+<section class="page-hero"><div class="inner"><div class="eyebrow">Private Team Area</div><h1>Artist Dashboard</h1><p>Shared calendar, pending booking requests, deposits, prices and client information in one place.</p></div></section>
+<section class="section"><div class="container admin-layout">
+  <div id="loginCard" class="card"><h3>Artist Login</h3><p>Demo mode is active. The live version uses individual Supabase accounts for Jessie-Ann, Ian, Taylor, Vivian and Jaycee.</p><div class="actions"><button class="btn fill" id="demoLogin" type="button">Open Demo Dashboard</button></div></div>
+  <div id="dashboard" style="display:none">
+    <div class="legend" style="margin-bottom:16px">
+      <div class="legend-item"><span class="dot" style="background:#b8865e"></span>Jessie-Ann</div>
+      <div class="legend-item"><span class="dot" style="background:#667e7a"></span>Ian</div>
+      <div class="legend-item"><span class="dot" style="background:#8f6d55"></span>Taylor</div>
+      <div class="legend-item"><span class="dot" style="background:#806c8c"></span>Vivian</div>
+      <div class="legend-item"><span class="dot" style="background:#9b8068"></span>Jaycee</div>
     </div>
-    <div class="login-grid" style="margin-top:22px">
-      <div class="full"><label>Email</label><input id="email" type="email" placeholder="artist@email.com"></div>
-      <div class="full"><label>Password</label><input id="password" type="password" placeholder="Password"></div>
-      <div class="full"><button id="loginBtn" class="btn fill" type="button">Sign In</button></div>
-    </div>
-    <div id="loginMessage" class="notice">Demo mode is active until your free Supabase project is connected.</div>
+    <div class="card"><h3>Shared Week at a Glance</h3><p>Accepted appointments and pending requests are color-coded by artist.</p><div id="weekCalendar" style="margin-top:18px"></div></div>
+    <div class="section-title" style="margin-top:34px"><h2>Booking Requests</h2><p>Accept or decline requests. Deposit paid and total tattoo price stay visible with the booking.</p></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Status</th><th>Client</th><th>Artist</th><th>Tattoo</th><th>Date / Time</th><th>Deposit Due</th><th>Deposit Paid</th><th>Total</th><th>Info</th><th>Actions</th></tr></thead>
+      <tbody id="requestRows"></tbody>
+    </table></div>
   </div>
+</div></section>
 
-  <div id="dashboardView" class="hidden">
-    <div class="admin-top">
-      <div class="admin-title">
-        <div class="eyebrow">Shared Studio Calendar</div>
-        <h1>Place of Art Calendar</h1>
-        <p>All artists and all appointments in one view.</p>
-      </div>
-      <div class="admin-actions">
-        <span id="artistBadge" class="badge">Demo Admin</span>
-        <button id="logoutBtn" class="small-btn" type="button">Sign Out</button>
-      </div>
-    </div>
 
-    <div class="legend">
-      <div class="legend-item"><span class="dot jessie"></span>Jessie-Ann</div>
-      <div class="legend-item"><span class="dot taylor"></span>Taylor</div>
-      <div class="legend-item"><span class="dot vivian"></span>Vivian</div>
-      <div class="legend-item"><span class="dot ian"></span>Ian</div>
-    </div>
-
-    <div id="calendar"></div>
-
-    <section style="padding:34px 0 0">
-      <div class="section-title">
-        <h2>Pending Booking Requests</h2>
-        <p>New website bookings appear here first. An artist or studio admin accepts or declines them before the appointment becomes confirmed.</p>
-      </div>
-      <div id="requests" class="request-grid"></div>
-    </section>
+<footer class="footer">
+  <strong>PLACE OF ART</strong>
+  Tattoo Shop & Gallery
+  <div class="footer-links">
+    <a href="policy.html">Studio Policy</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="aftercare.html">Aftercare</a>
+    <a href="admin.html">Artist Login</a>
   </div>
-</main>
+</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
-<script type="module" src="admin.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>
