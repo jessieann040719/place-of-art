@@ -4,110 +4,108 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Booking | Place of Art</title>
-<meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
+<meta name="description" content="Request a tattoo appointment at Place of Art Tattoo Shop & Gallery.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <header class="site-header">
   <nav class="nav">
-    <a href="index.html" class="brand-wrap">
-      <span class="brand">PLACE OF ART</span>
-      <span class="brand-sub">Tattoo Shop & Gallery</span>
-    </a>
+    <a href="index.html" class="brand-wrap"><span class="brand">PLACE OF ART</span><span class="brand-sub">Tattoo Shop & Gallery</span></a>
     <div class="nav-links">
-      <a href="artists.html">Artists</a>
-      <a href="booking.html">Booking</a>
-      <a href="the-shop.html">The Shop</a>
-      <a href="art-gallery.html">Art Gallery</a>
-      <a href="healed.html">Healed</a>
-      <a href="news-events.html">News & Events</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="booking.html" class="book">Book Now</a>
+      <a href="artists.html">Artists</a><a href="booking.html" class="active">Booking</a><a href="the-shop.html">The Shop</a><a href="art-gallery.html">Art Gallery</a><a href="healed.html">Healed</a><a href="news-events.html">News & Events</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="booking.html" class="book">Book Now</a>
     </div>
   </nav>
 </header>
 
-
-<section class="page-hero"><div class="inner"><div class="eyebrow">Appointment Request</div><h1>Book Your Tattoo</h1><p>Complete the steps below. The date and time you choose is a request until Place of Art accepts it.</p></div></section>
-<section class="section"><div class="container">
-  <div class="stepper">
-    <span class="step active" data-step-label="1">1 · Tattoo</span>
-    <span class="step" data-step-label="2">2 · Details</span>
-    <span class="step" data-step-label="3">3 · Artist</span>
-    <span class="step" data-step-label="4">4 · Calendar</span>
-    <span class="step" data-step-label="5">5 · Review</span>
+<section class="page-hero booking-page-hero">
+  <div class="inner">
+    <div class="eyebrow">Appointment Request</div>
+    <h1>Book Your Tattoo</h1>
+    <p>Start by choosing the tattoo category that best fits your project. Each category opens the booking flow with the correct pricing and appointment-length rules.</p>
   </div>
+</section>
 
-  <div class="booking-step active" data-step="1">
-    <div class="section-title"><h2>Choose a Tattoo Category</h2><p>Select the category that best fits your project.</p></div>
-    <div class="choice-grid" id="categoryChoices"></div>
-    <div id="fineLineOptions" class="card" style="margin-top:18px;display:none"></div>
-    <div class="actions"><button class="btn fill" id="toDetails" type="button">Continue</button></div>
-  </div>
-
-  <div class="booking-step" data-step="2">
-    <div class="section-title"><h2>Your Tattoo & Contact Information</h2><p>At least one reference image is required for every tattoo request.</p></div>
-    <form id="clientForm">
-      <div class="form-grid">
-        <div><label>Full Name *</label><input id="clientName" required autocomplete="name"></div>
-        <div><label>Date of Birth *</label><input id="dob" type="date" required></div>
-        <div><label>Email Address *</label><input id="email" type="email" required autocomplete="email"></div>
-        <div><label>Phone Number *</label><input id="phone" type="tel" required autocomplete="tel"></div>
-        <div class="full"><label>Placement / Body Area *</label><input id="placement" required placeholder="Example: left forearm"></div>
-        <div class="full"><label>Tell us how you want the tattoo *</label><textarea id="description" required placeholder="Describe design, style, wording, color, shading, changes and anything else the artist should know."></textarea></div>
-        <div class="full"><label>Reference Images *</label><input id="refs" type="file" accept="image/*" multiple required><small style="color:#9f8f7d">You may select multiple images.</small></div>
-      </div>
-    </form>
-    <div class="notice">Online booking is an appointment request only. Additional identification, health-history and written consent/release documents may be required before tattooing.</div>
-    <div class="actions"><button class="btn" data-back="1" type="button">Back</button><button class="btn fill" id="toArtist" type="button">Choose Artist</button></div>
-  </div>
-
-  <div class="booking-step" data-step="3">
-    <div class="section-title"><h2>Choose Your Artist</h2><p>Jaycee McKinney is currently an apprentice and is not available for online booking.</p></div>
-    <div class="choice-grid" id="artistChoices"></div>
-    <div class="actions"><button class="btn" data-back="2" type="button">Back</button><button class="btn fill" id="toCalendar" type="button">Choose Date & Time</button></div>
-  </div>
-
-  <div class="booking-step" data-step="4">
-    <div class="section-title"><h2>Choose a Requested Date & Time</h2><p>Sunday is closed. Your request remains pending until accepted by the studio.</p></div>
-    <div class="calendar-wrap">
-      <div class="calendar">
-        <div class="cal-head"><button class="btn" id="prevMonth" type="button">Previous</button><h3 id="monthLabel"></h3><button class="btn" id="nextMonth" type="button">Next</button></div>
-        <div class="cal-grid" id="calendarGrid"></div>
-      </div>
-      <div class="card">
-        <h3>Request Times</h3>
-        <div id="slotInfo" class="notice">Select a date.</div>
-        <div id="timeSlots" class="slots"></div>
-      </div>
+<section class="section booking-categories-section">
+  <div class="container">
+    <div class="section-title center-title">
+      <div class="eyebrow">Choose Your Service</div>
+      <h2>What would you like to book?</h2>
+      <p>Tap one of the large categories below to begin.</p>
     </div>
-    <div class="actions"><button class="btn" data-back="3" type="button">Back</button><button class="btn fill" id="toReview" type="button">Review Request</button></div>
-  </div>
 
-  <div class="booking-step" data-step="5">
-    <div class="section-title"><h2>Review Your Request</h2></div>
-    <div id="bookingSummary" class="summary"></div>
-    <div class="notice">Deposit policy: $50 for most appointments; appointments priced at $500 or more require a $100 non-refundable deposit. Large/custom totals may remain Custom / TBD until reviewed by the artist.</div>
-    <div class="notice warn">This package includes a demo workflow. Real shared booking, real artist logins, reference-image storage and deposit payments require the included Supabase + payment-provider connection. Never collect card numbers directly in GitHub code.</div>
-    <div style="margin-top:18px"><label><input id="policyAck" type="checkbox">I have read and agree to the Studio Policy, Privacy Policy and Terms of Use.</label></div>
-    <div class="actions"><button class="btn" data-back="4" type="button">Back</button><button class="btn fill" id="submitRequest" type="button">Submit Pending Request</button></div>
-    <div id="submitMessage"></div>
+    <div class="tattoo-category-grid" id="categoryChoices"></div>
   </div>
-</div></section>
+</section>
 
+<section class="section alt" id="bookingFlowSection">
+  <div class="container">
+    <div class="stepper">
+      <span class="step active" data-step-label="1">1 · Tattoo</span>
+      <span class="step" data-step-label="2">2 · Details</span>
+      <span class="step" data-step-label="3">3 · Artist</span>
+      <span class="step" data-step-label="4">4 · Calendar</span>
+      <span class="step" data-step-label="5">5 · Review</span>
+    </div>
+
+    <div class="booking-step active" data-step="1">
+      <div class="section-title"><h2 id="selectedCategoryTitle">Choose a category above</h2><p id="selectedCategoryText">Once selected, the appropriate options will appear here.</p></div>
+      <div id="fineLineOptions" style="display:none"></div>
+      <div class="actions"><button class="btn fill" id="toDetails" type="button">Book Now</button></div>
+    </div>
+
+    <div class="booking-step" data-step="2">
+      <div class="section-title"><h2>Your Tattoo & Contact Information</h2><p>Every tattoo request requires at least one reference image.</p></div>
+      <form id="clientForm">
+        <div class="form-grid">
+          <div><label>Full Name *</label><input id="clientName" required autocomplete="name"></div>
+          <div><label>Date of Birth *</label><input id="dob" type="date" required></div>
+          <div><label>Email Address *</label><input id="email" type="email" required autocomplete="email"></div>
+          <div><label>Phone Number *</label><input id="phone" type="tel" required autocomplete="tel"></div>
+          <div class="full"><label>Placement / Body Area *</label><input id="placement" required placeholder="Example: left forearm"></div>
+          <div class="full"><label>Tell us exactly how you want the tattoo *</label><textarea id="description" required placeholder="Describe the idea, style, wording, color, shading, changes, placement and anything else your artist should know."></textarea></div>
+          <div class="full"><label>Reference Images *</label><input id="refs" type="file" accept="image/*" multiple required><small style="color:#9f8f7d">You may upload one or multiple images.</small></div>
+        </div>
+      </form>
+      <div class="notice">This is an appointment request. Place of Art will review the request and confirm whether the selected date and time works.</div>
+      <div class="actions"><button class="btn" data-back="1" type="button">Back</button><button class="btn fill" id="toArtist" type="button">Continue to Artist</button></div>
+    </div>
+
+    <div class="booking-step" data-step="3">
+      <div class="section-title"><h2>Choose Your Artist</h2><p>Jessie-Ann Odell, Ian Odell, Taylor Paige Graham and Vivian Howerton are available for online requests. Jaycee McKinney is currently an apprentice and is not bookable yet.</p></div>
+      <div class="artist-booking-grid" id="artistChoices"></div>
+      <div class="actions"><button class="btn" data-back="2" type="button">Back</button><button class="btn fill" id="toCalendar" type="button">Continue to Calendar</button></div>
+    </div>
+
+    <div class="booking-step" data-step="4">
+      <div class="section-title"><h2>Choose a Requested Date & Time</h2><p>Sunday is closed. The selected date and time remains pending until accepted by the studio.</p></div>
+      <div class="calendar-wrap">
+        <div class="calendar">
+          <div class="cal-head"><button class="btn" id="prevMonth" type="button">Previous</button><h3 id="monthLabel"></h3><button class="btn" id="nextMonth" type="button">Next</button></div>
+          <div class="cal-grid" id="calendarGrid"></div>
+        </div>
+        <div class="card">
+          <h3>Available Request Times</h3>
+          <div id="slotInfo" class="notice">Select a date.</div>
+          <div id="timeSlots" class="slots"></div>
+        </div>
+      </div>
+      <div class="actions"><button class="btn" data-back="3" type="button">Back</button><button class="btn fill" id="toReview" type="button">Review Request</button></div>
+    </div>
+
+    <div class="booking-step" data-step="5">
+      <div class="section-title"><h2>Review Your Request</h2></div>
+      <div id="bookingSummary" class="summary"></div>
+      <div class="notice">Deposit policy: $50 for most appointments. Appointments priced at $500 or more require a $100 non-refundable deposit. Large/custom totals may remain Custom / TBD until reviewed by the artist.</div>
+      <div style="margin-top:18px"><label><input id="policyAck" type="checkbox">I have read and agree to the Studio Policy, Privacy Policy and Terms of Use.</label></div>
+      <div class="actions"><button class="btn" data-back="4" type="button">Back</button><button class="btn fill" id="submitRequest" type="button">Submit Pending Request</button></div>
+      <div id="submitMessage"></div>
+    </div>
+  </div>
+</section>
 
 <footer class="footer">
-  <strong>PLACE OF ART</strong>
-  Tattoo Shop & Gallery
-  <div class="footer-links">
-    <a href="policy.html">Studio Policy</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-    <a href="aftercare.html">Aftercare</a>
-    <a href="admin.html">Artist Login</a>
-  </div>
+  <strong>PLACE OF ART</strong>Tattoo Shop & Gallery
+  <div class="footer-links"><a href="policy.html">Studio Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="aftercare.html">Aftercare</a><a href="admin.html">Artist Login</a></div>
 </footer>
 
 <script src="booking.js"></script>

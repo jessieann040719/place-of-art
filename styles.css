@@ -298,3 +298,178 @@ th{
   .shop-grid{display:block}
   .shop-grid img{height:300px;margin-bottom:10px}
 }
+
+
+/* ===== REDESIGN V2 ===== */
+.hero-homepage{min-height:760px}
+.hero-copy-center{max-width:780px;text-align:center;margin:auto}
+.home-logo{
+  width:min(330px,62vw);
+  margin:0 auto 22px;
+  mix-blend-mode:screen;
+  filter:sepia(.45) saturate(.65) brightness(1.2);
+}
+.center-actions{justify-content:center}
+.welcome-band{
+  padding:85px 24px 95px;
+  background:
+    radial-gradient(circle at 50% 0,rgba(105,62,34,.18),transparent 35%),
+    linear-gradient(180deg,#120d09,#090706)
+}
+.welcome-copy{text-align:center;max-width:820px;margin:0 auto 44px}
+.welcome-copy h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.5rem,5vw,4.4rem);
+  font-weight:400;
+  line-height:1.05;
+  margin-top:10px
+}
+.welcome-copy p{color:var(--muted);margin-top:16px}
+.home-category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px
+}
+.home-category{
+  min-height:320px;
+  padding:30px 24px;
+  border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(75,45,28,.68),rgba(21,14,10,.98));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  transition:.22s ease
+}
+.home-category:hover{
+  transform:translateY(-5px);
+  border-color:rgba(224,188,142,.55);
+  background:linear-gradient(145deg,rgba(91,53,31,.80),rgba(25,16,11,.98))
+}
+.home-category-icon{
+  width:112px;height:112px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:22px;
+  color:var(--sand)
+}
+.home-category-icon svg{
+  width:100%;height:100%;
+  fill:none;stroke:currentColor;stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round
+}
+.home-category h3{
+  font-family:Georgia,serif;font-size:1.7rem;font-weight:400;color:var(--cream)
+}
+.home-category p{color:#bca996;font-size:.9rem;margin-top:9px}
+
+.center-title{text-align:center}
+.booking-categories-section{
+  background:radial-gradient(circle at center top,rgba(105,62,34,.18),transparent 38%),#0d0907
+}
+.tattoo-category-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px
+}
+.tattoo-category-card{
+  min-height:390px;
+  padding:28px 25px;
+  border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(78,46,28,.72),rgba(22,14,10,.98));
+  color:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  transition:.22s ease
+}
+.tattoo-category-card:hover,.tattoo-category-card.selected{
+  transform:translateY(-4px);
+  border-color:var(--sand);
+  background:linear-gradient(145deg,rgba(96,57,34,.86),rgba(28,17,11,.98))
+}
+.tattoo-category-icon{
+  width:145px;height:145px;
+  color:var(--sand);margin-bottom:22px
+}
+.tattoo-category-icon svg{
+  width:100%;height:100%;
+  fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round
+}
+.tattoo-category-content h3{
+  font-family:Georgia,serif;font-size:1.85rem;font-weight:400
+}
+.tattoo-category-content p{color:#c4b19d;margin-top:8px}
+.tattoo-category-content span{
+  display:inline-block;margin-top:18px;
+  text-transform:uppercase;letter-spacing:.11em;font-size:.69rem;color:var(--gold)
+}
+.selected-service-card{margin-top:8px}
+.big-option-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:18px
+}
+.big-option{
+  min-height:150px;
+  padding:18px;
+  border:1px solid var(--line);
+  background:#120d0a;
+  color:var(--cream);
+  text-align:center
+}
+.big-option:hover,.big-option.selected{
+  border-color:var(--sand);
+  background:#291a11
+}
+.big-option strong{
+  display:block;
+  font-family:Georgia,serif;
+  font-size:1.45rem;
+  font-weight:400
+}
+.big-option span{display:block;color:#9f8f7d;margin-top:6px}
+.selected-price{
+  margin-top:18px;
+  padding:18px;
+  border:1px solid var(--gold);
+  background:#100b08;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap
+}
+.selected-price span{color:#b9a895;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem}
+.selected-price strong{font-family:Georgia,serif;color:var(--sand);font-size:2rem}
+.selected-price small{color:#9f8f7d}
+.artist-booking-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px
+}
+.artist-booking-card{
+  min-height:150px;
+  padding:20px;
+  border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(70,43,28,.62),rgba(20,14,10,.96));
+  color:var(--cream);
+  display:flex;align-items:center;gap:18px;text-align:left
+}
+.artist-booking-card:hover,.artist-booking-card.selected{border-color:var(--sand);background:#2a1b12}
+.artist-booking-avatar{
+  width:74px;height:74px;border-radius:50%;
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-size:1.45rem;color:var(--sand);flex:0 0 auto
+}
+.artist-booking-card strong{display:block;font-family:Georgia,serif;font-size:1.35rem;font-weight:400}
+.artist-booking-card small{display:block;color:#a99682;margin-top:5px}
+.about-story p{font-size:1.03rem;line-height:1.8}
+
+@media(max-width:1050px){
+  .home-category-grid{grid-template-columns:repeat(2,1fr)}
+  .tattoo-category-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  .home-category-grid,.tattoo-category-grid,.artist-booking-grid,.big-option-grid{grid-template-columns:1fr}
+  .home-category{min-height:260px}
+  .tattoo-category-card{min-height:300px}
+  .home-category-icon{width:95px;height:95px}
+  .tattoo-category-icon{width:120px;height:120px}
+  .hero-homepage{min-height:650px}
+}

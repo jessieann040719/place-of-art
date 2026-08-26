@@ -66,3 +66,11 @@ FILES YOU CAN EDIT LATER
 - Healed: add healed tattoo images
 - News & Events: update as needed
 - Aftercare: replace the general text with your exact studio aftercare protocol
+
+
+REDESIGN V2:
+- Homepage now has logo/background hero, Welcome section, and large clickable category tiles.
+- About Us now contains the full Saint Ink -> USA -> Place of Art story.
+- Booking now uses large illustrated tattoo-category icons.
+- Fine Line Bundle flow is size first, then 1 / 2 / 3 tattoos.
+- Booking continues to client info + reference images + artist + calendar + review.
