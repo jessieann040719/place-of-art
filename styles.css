@@ -57,7 +57,7 @@ button{cursor:pointer}
   min-height:690px;display:flex;align-items:center;position:relative;
   background:
     linear-gradient(90deg,rgba(8,5,4,.88),rgba(22,12,7,.56),rgba(8,5,4,.78)),
-    url("assets/shop-01.jpg") center/cover no-repeat;
+    url("1000050967.jpg") center/cover no-repeat;
   border-bottom:1px solid var(--line)
 }
 .hero::after{

@@ -1,0 +1,31 @@
+PLACE OF ART — FLAT IMAGE FIX
+
+This version is specifically built for your current GitHub structure.
+
+IMPORTANT:
+- ALL HTML, JS, CSS AND IMAGE FILES ARE IN THE SAME MAIN FOLDER.
+- There is NO assets folder.
+- Do NOT create subfolders.
+- Upload every file from this ZIP directly into the root of the place-of-art repository.
+- The existing files with the same names can be replaced.
+
+This fixes:
+- homepage background image
+- Place of Art logo
+- booking tattoo images
+- Jessie-Ann portfolio images
+
+Jessie-Ann portfolio files included:
+IMG_4321.jpg
+IMG_4322.jpg
+IMG_4323.jpg
+IMG_4324.jpg
+IMG_4325.jpg
+IMG_4326.jpg
+IMG_4327.jpg
+IMG_4328.jpg
+IMG_4329.jpg
+IMG_4330.jpg
+IMG_4332.jpg
+IMG_4333.jpg
+IMG_4334.jpg

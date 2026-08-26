@@ -1,18 +1,18 @@
 
 const categories=[
-{id:"fineline",name:"Fine Line Tattoo",price:"Choose your size to see pricing",kind:"fine",image:"assets/booking/fine-small-key.jpg"},
-{id:"bundle",name:"Fine Line Tattoo Bundle",price:"Choose size, then 1, 2 or 3 tattoos",kind:"bundle",image:"assets/booking/fine-medium-rabbits.jpg"},
-{id:"micro",name:"Micro Realism",price:"Starting at $200+",kind:"custom",image:"assets/booking/micro-fox.jpg"},
-{id:"medium",name:"Medium Sized Tattoo",price:"Starting at $400+",kind:"custom",image:"assets/booking/medium-headdress.jpg"},
-{id:"realism",name:"Realism",price:"Starting at $500+",kind:"custom",image:"assets/booking/realism-tiger.jpg"},
-{id:"large",name:"Large Tattoo",price:"Starting at $600+",kind:"large",image:"assets/booking/large-hands.jpg"},
-{id:"sleeves",name:"Custom Sleeves & More",price:"Custom Pricing",kind:"large",image:"assets/booking/sleeve-elephant.jpg"}
+{id:"fineline",name:"Fine Line Tattoo",price:"Choose your size to see pricing",kind:"fine",image:"fine-small-key.jpg"},
+{id:"bundle",name:"Fine Line Tattoo Bundle",price:"Choose size, then 1, 2 or 3 tattoos",kind:"bundle",image:"fine-medium-rabbits.jpg"},
+{id:"micro",name:"Micro Realism",price:"Starting at $200+",kind:"custom",image:"micro-fox.jpg"},
+{id:"medium",name:"Medium Sized Tattoo",price:"Starting at $400+",kind:"custom",image:"medium-headdress.jpg"},
+{id:"realism",name:"Realism",price:"Starting at $500+",kind:"custom",image:"realism-tiger.jpg"},
+{id:"large",name:"Large Tattoo",price:"Starting at $600+",kind:"large",image:"large-hands.jpg"},
+{id:"sleeves",name:"Custom Sleeves & More",price:"Custom Pricing",kind:"large",image:"sleeve-elephant.jpg"}
 ];
 
 const fineSizeImages={
- "0.5–1 inch":"assets/booking/fine-small-key.jpg",
- "2–3 inch":"assets/booking/fine-medium-rabbits.jpg",
- "4–5 inch":"assets/booking/fine-large-skull.jpg"
+ "0.5–1 inch":"fine-small-key.jpg",
+ "2–3 inch":"fine-medium-rabbits.jpg",
+ "4–5 inch":"fine-large-skull.jpg"
 };
 
 const artists=[
