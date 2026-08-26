@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Artist Dashboard | Place of Art</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.css">
+  <style>
+    .admin-shell{max-width:1280px;margin:auto;padding:32px 20px 70px}
+    .admin-top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+    .admin-title h1{font-family:Georgia,serif;font-weight:400;font-size:2.5rem}
+    .admin-title p{color:#b9a895}
+    .login-card,.dashboard-card{background:#17100c;border:1px solid rgba(223,189,145,.22);padding:24px}
+    .login-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:680px}
+    .login-grid .full{grid-column:1/-1}
+    .admin-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{display:inline-block;padding:6px 10px;border:1px solid rgba(223,189,145,.28);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+    .legend{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 20px}
+    .legend-item{display:flex;align-items:center;gap:7px;color:#c8b7a5;font-size:.85rem}
+    .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+    .jessie{background:#b8865e}.taylor{background:#8f6d55}.vivian{background:#806c8c}.ian{background:#667e7a}
+    #calendar{background:#f6eee4;color:#1a110c;padding:12px;border-radius:2px}
+    .request-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .request-card{background:#17100c;border:1px solid rgba(223,189,145,.22);padding:18px}
+    .request-card h3{font-family:Georgia,serif;font-weight:400;color:#dfbd91}
+    .request-card p{color:#b9a895;font-size:.9rem;margin-top:5px}
+    .money{color:#efe2d1;font-weight:700}
+    .row-actions{display:flex;gap:8px;margin-top:14px}
+    .small-btn{padding:9px 12px;border:1px solid #c59664;background:transparent;color:#efe2d1;cursor:pointer}
+    .small-btn.accept{background:#dfbd91;color:#1a110c}
+    .hidden{display:none!important}
+    @media(max-width:900px){.request-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.login-grid,.request-grid{grid-template-columns:1fr}.login-grid .full{grid-column:auto}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">PLACE OF ART</a>
+    <div class="nav-links"><a href="index.html">Website</a><a class="book" href="admin.html">Artist Login</a></div>
+  </nav>
+</header>
+
+<main class="admin-shell">
+  <div id="loginView" class="login-card">
+    <div class="admin-title">
+      <div class="eyebrow">Private Team Access</div>
+      <h1>Artist Login</h1>
+      <p>Each artist signs in with their own account. This page becomes live after Supabase is connected.</p>
+    </div>
+    <div class="login-grid" style="margin-top:22px">
+      <div class="full"><label>Email</label><input id="email" type="email" placeholder="artist@email.com"></div>
+      <div class="full"><label>Password</label><input id="password" type="password" placeholder="Password"></div>
+      <div class="full"><button id="loginBtn" class="btn fill" type="button">Sign In</button></div>
+    </div>
+    <div id="loginMessage" class="notice">Demo mode is active until your free Supabase project is connected.</div>
+  </div>
+
+  <div id="dashboardView" class="hidden">
+    <div class="admin-top">
+      <div class="admin-title">
+        <div class="eyebrow">Shared Studio Calendar</div>
+        <h1>Place of Art Calendar</h1>
+        <p>All artists and all appointments in one view.</p>
+      </div>
+      <div class="admin-actions">
+        <span id="artistBadge" class="badge">Demo Admin</span>
+        <button id="logoutBtn" class="small-btn" type="button">Sign Out</button>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="dot jessie"></span>Jessie-Ann</div>
+      <div class="legend-item"><span class="dot taylor"></span>Taylor</div>
+      <div class="legend-item"><span class="dot vivian"></span>Vivian</div>
+      <div class="legend-item"><span class="dot ian"></span>Ian</div>
+    </div>
+
+    <div id="calendar"></div>
+
+    <section style="padding:34px 0 0">
+      <div class="section-title">
+        <h2>Pending Booking Requests</h2>
+        <p>New website bookings appear here first. An artist or studio admin accepts or declines them before the appointment becomes confirmed.</p>
+      </div>
+      <div id="requests" class="request-grid"></div>
+    </section>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
+<script type="module" src="admin.js"></script>
+</body>
+</html>

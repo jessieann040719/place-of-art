@@ -1,0 +1,24 @@
+PLACE OF ART — SHARED ARTIST CALENDAR
+
+What is included:
+- admin.html: private artist login/dashboard screen
+- shared calendar with one color per artist
+- pending booking requests with Accept / Decline controls
+- deposit paid field
+- total tattoo price field
+- custom/TBD total for large custom work
+- Supabase SQL schema prepared for shared accounts and booking data
+- demo mode so you can preview the interface before connecting a backend
+
+Important:
+GitHub Pages alone cannot securely handle real artist logins, shared appointment data or payments.
+To make this live, connect a free Supabase project:
+1. Create a Supabase project.
+2. Open SQL Editor and run supabase-schema.sql.
+3. Create one Auth user for each artist.
+4. Link each user's UUID to the matching artists.user_id.
+5. Put the Supabase project URL and browser anon key into config.js.
+6. Set DEMO_MODE = false.
+7. Then connect the public booking form and Stripe/Square payment confirmation.
+
+Do NOT put a Supabase service-role key or Stripe secret key into GitHub.
