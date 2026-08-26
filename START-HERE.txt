@@ -62,3 +62,11 @@ without editing HTML.
 
 UPLOAD TO GITHUB
 This package uses a FLAT structure. Upload ALL files from the unzipped folder directly to the root of your place-of-art repository.
+
+
+V4 CHANGES
+- Booking cards reduced in size and arranged 3 across on desktop.
+- Gift Cards removed from tattoo booking and moved to its own top-menu page.
+- Gift Cards: custom amount, online/shop purchase flow, payment confirmation, pickup voucher, non-refundable and not redeemable for cash.
+- Homepage central logo image removed completely; text-only branding remains.
+- Motion effects strengthened: hero entrance, scroll reveals, staggered cards, hover motion and nav underline animation.

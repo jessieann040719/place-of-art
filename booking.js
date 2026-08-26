@@ -4,7 +4,7 @@ let cursor=new Date();cursor.setDate(1);
 const cats={
  fineline:{name:"Fine Line Tattoo"},bundle:{name:"Fine Line Tattoo Bundle"},micro:{name:"Micro Realism",price:200,plus:true},
  realism:{name:"Realism",price:500,plus:true},medium:{name:"Medium Sized Tattoo",price:400,plus:true},
- large:{name:"Large Tattoo",price:600,plus:true},sleeves:{name:"Custom Sleeves & More"},gift:{name:"Gift Card"}
+ large:{name:"Large Tattoo",price:600,plus:true},sleeves:{name:"Custom Sleeves & More"}
 };
 const artists=[
 {id:"jessie-ann-odell",name:"Jessie-Ann Odell",sub:"Realism · Fine Line · Micro Realism"},
@@ -31,8 +31,6 @@ function renderOptions(){
    <button class="option-card" data-size="4–5 inch"><img src="size-large.jpg"><div><strong>4–5 inch</strong><span>From $250+</span></div></button>
   </div><div id="countBox"></div>`;
   box.querySelectorAll("[data-size]").forEach(btn=>btn.onclick=()=>{box.querySelectorAll("[data-size]").forEach(x=>x.classList.remove("selected"));btn.classList.add("selected");S.size=btn.dataset.size;if(S.cat==="fineline"){S.count=1;calc();}else{renderCounts()}});
- }else if(S.cat==="gift"){
-  box.innerHTML=`<div class="card"><h3>Gift Card Amount</h3><label>Custom Amount ($)</label><input id="giftAmount" type="number" min="25" step="5" placeholder="Enter amount"><div class="notice">Enter the gift card value you would like to purchase.</div></div>`;
  }else{
   box.innerHTML=`<div class="card"><h3>${cats[S.cat].name}</h3><p>${S.price?`Starting at $${S.price}${S.plus?"+":""}.`:"Custom pricing based on size, time and detail."}</p></div>`;
  }
@@ -57,7 +55,7 @@ document.getElementById("continueDetails").onclick=()=>{
  if(!S.cat)return alert("Choose a tattoo category first.");
  if(["fineline","bundle"].includes(S.cat)&&!S.size)return alert("Choose a size.");
  if(S.cat==="bundle"&&!S.count)return alert("Choose 1, 2 or 3 tattoos.");
- if(S.cat==="gift"){const v=+document.getElementById("giftAmount").value;if(!v||v<25)return alert("Enter a gift card amount.");S.giftAmount=v;S.price=v;S.duration=0;}
+
  step(2);
 };
 document.getElementById("continueArtist").onclick=()=>{if(!document.getElementById("clientForm").reportValidity())return;if(!document.getElementById("refs").files.length&&S.cat!=="gift")return alert("Please attach at least one reference image.");step(3)};

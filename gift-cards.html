@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gift Cards | Place of Art</title>
+<meta name="description" content="Place of Art Tattoo Shop & Gallery in Poteau, Oklahoma.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav-shell">
+    <a class="brand" href="index.html">
+      <span>PLACE OF ART</span>
+      <small>TATTOO SHOP & GALLERY</small>
+    </a>
+    <button class="mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
+    <div class="nav-links">
+      <a href="artists.html">Artists</a>
+      <a href="booking.html">Booking</a>
+      <a href="the-shop.html">The Shop</a>
+      <a href="art-gallery.html">Art Gallery</a>
+      <a href="healed.html">Healed</a>
+      <a href="news-events.html">News & Events</a>
+      <a href="gift-cards.html">Gift Cards</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="nav-book" href="booking.html">Book Now</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="container reveal-left">
+    <div class="kicker">Give the Gift of Art</div>
+    <h1>Gift Cards</h1>
+    <p>Choose a custom amount, pay online or purchase directly at the studio.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="gift-page-icon">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <rect x="22" y="45" width="76" height="52"/>
+            <path d="M60 45v52M18 45h84V32H18z"/>
+            <path d="M60 32c-4-17-26-19-26-6 0 9 13 7 26 6zM60 32c4-17 26-19 26-6 0 9-13 7-26 6z"/>
+          </svg>
+        </div>
+        <h3>Custom Amount</h3>
+        <p>Enter the amount you would like to give. Online payments will be available through the connected payment provider.</p>
+        <div class="form-grid" style="margin-top:18px">
+          <div class="full">
+            <label>Gift Card Amount ($)</label>
+            <input id="giftAmount" type="number" min="25" step="5" placeholder="Example: 150">
+          </div>
+          <div class="full">
+            <label>Recipient Name</label>
+            <input id="recipientName" placeholder="Optional">
+          </div>
+          <div>
+            <label>Your Name</label>
+            <input id="buyerName">
+          </div>
+          <div>
+            <label>Your Email</label>
+            <input id="buyerEmail" type="email">
+          </div>
+        </div>
+        <div class="actions" style="justify-content:flex-start">
+          <button class="btn fill" id="payOnline" type="button">Pay Online</button>
+          <a class="btn" href="contact.html">Buy at the Shop</a>
+        </div>
+        <div id="giftMessage"></div>
+      </div>
+
+      <div class="card reveal">
+        <h3>How It Works</h3>
+        <div class="gift-steps">
+          <div><span>01</span><p>Choose a custom gift card amount.</p></div>
+          <div><span>02</span><p>Pay online or purchase directly at Place of Art.</p></div>
+          <div><span>03</span><p>After online payment, you receive a payment confirmation.</p></div>
+          <div><span>04</span><p>The physical gift card voucher can be picked up at the studio.</p></div>
+        </div>
+        <div class="notice">Gift cards are non-refundable, are not redeemable for cash, and cannot be cashed out. They may be applied toward eligible services at Place of Art.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">PLACE OF ART</div>
+  <div>Tattoo Shop & Gallery · Poteau, Oklahoma</div>
+  <div class="footer-links">
+    <a href="policy.html">Studio Policy</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="aftercare.html">Aftercare</a>
+    <a href="admin.html">Artist Login</a>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script src="gift-cards.js"></script>
+</body>
+</html>
