@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Place of Art | Tattoo Shop & Gallery</title>
+
+  <style>
+    :root {
+      --cream: #f4efe8;
+      --beige: #ddd0c2;
+      --brown: #6b5646;
+      --dark: #1f1b18;
+      --white: #ffffff;
+      --line: #cfc3b6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 90px 24px;
+      background:
+        linear-gradient(rgba(244,239,232,.86), rgba(244,239,232,.92)),
+        radial-gradient(circle at center, #ffffff, #e2d4c5);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      margin-bottom: 18px;
+      color: var(--brown);
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 32px;
+      color: #51463f;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-block;
+      border: none;
+      padding: 15px 26px;
+      margin: 5px;
+      transition: 0.2s ease;
+    }
+
+    .primary-btn {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .secondary-btn {
+      background: transparent;
+      border: 1px solid var(--dark);
+      color: var(--dark);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      opacity: 0.78;
+    }
+
+    section {
+      padding: 85px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-heading span {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      color: var(--brown);
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-top: 8px;
+    }
+
+    .booking-grid,
+    .artist-grid,
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 28px;
+    }
+
+    .booking-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .booking-card h3,
+    .artist-card h3,
+    .price-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .booking-card button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 13px 15px;
+      border: 1px solid var(--dark);
+      background: transparent;
+    }
+
+    .booking-card button:hover {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .price-list {
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .price-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #e8e0d7;
+    }
+
+    .artist-card p {
+      color: #5d524b;
+    }
+
+    .booking-panel {
+      display: none;
+      margin-top: 35px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 30px;
+    }
+
+    .booking-panel.active {
+      display: block;
+    }
+
+    .booking-panel h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .option-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .option-buttons button {
+      border: 1px solid var(--dark);
+      background: var(--cream);
+      padding: 12px 16px;
+    }
+
+    .option-buttons button:hover {
+      background: var(--dark);
+      color: white;
+    }
+
+    .policy-box {
+      background: var(--beige);
+      padding: 35px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .policy-box p + p {
+      margin-top: 14px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 50px 24px;
+      text-align: center;
+    }
+
+    footer h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .booking-grid,
+      .artist-grid,
+      .price-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .booking-grid,
+      .artist-grid,
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.8rem;
+      }
+
+      section {
+        padding: 65px 18px;
+      }
+
+      .hero {
+        min-height: 580px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="brand">PLACE OF ART</div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#booking">Booking</a>
+      <a href="#artists">Artists</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#aftercare">Aftercare</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#news">News</a>
+      <a href="#events">Events</a>
+      <a href="#policy">Policy</a>
+    </div>
+  </nav>
+</header>
+
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">Tattoo Studio</div>
+    <h1>Place of Art</h1>
+    <h2>Tattoo Shop & Gallery</h2>
+
+    <p>
+      Custom tattooing with a focus on artistry, detail and individuality.
+      Explore our artists, pricing and booking options below.
+    </p>
+
+    <a class="primary-btn" href="#booking">Book a Tattoo</a>
+    <a class="secondary-btn" href="#artists">Meet the Artists</a>
+  </div>
+</section>
+
+
+<section id="booking">
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Appointments</span>
+      <h2>Choose Your Tattoo</h2>
+    </div>
+
+    <div class="booking-grid">
+
+      <div class="card booking-card">
+        <div>
+          <h3>Fine Line Tattoo</h3>
+          <p>Delicate, clean and precise fine line tattooing.</p>
+        </div>
+        <button onclick="showBooking('fineline')">View Sizes & Pricing</button>
+      </div>
+
+      <div class="card booking-card">
+        <div>
+          <h3>Fine Line Tattoo Bundle</h3>
+          <p>Book multiple fine line tattoos together.</p>
+        </div>
+        <button onclick="showBooking('bundle')">View Bundles</button>
+      </div>
+
+      <div class="card booking-card">
+        <div>
+          <h3>Micro Realism</h3>
+          <p>Small-scale realistic tattoos with detailed execution.</p>
+        </div>
+        <button onclick="showBooking('micro')">View Pricing</button>
+      </div>
+
+      <div class="card booking-card">
+        <div>
+          <h3>Medium Sized Tattoo</h3>
+          <p>Custom tattoo work for medium-sized pieces.</p>
+        </div>
+        <button onclick="showBooking('medium')">View Pricing</button>
+      </div>
+
+      <div class="card booking-card">
+        <div>
+          <h3>Large Tattoo</h3>
+          <p>Larger custom artwork requiring extended appointments.</p>
+        </div>
+        <button onclick="showBooking('large')">View Pricing</button>
+      </div>
+
+      <div class="card booking-card">
+        <div>
+          <h3>Custom Sleeves</h3>
+          <p>Arm, leg and torso projects designed specifically for you.</p>
+        </div>
+        <button onclick="showBooking('sleeve')">More Information</button>
+      </div>
+
+      <div class="card booking-card">
+        <div>
+          <h3>Gift Card</h3>
+          <p>Choose a custom gift card amount.</p>
+        </div>
+        <button onclick="showBooking('gift')">Choose Gift Card</button>
+      </div>
+
+    </div>
+
+    <div id="bookingPanel" class="booking-panel"></div>
+
+  </div>
+</section>
+
+
+<section id="artists">
+  <div class="container">
+
+    <div class="section-heading">
+      <span>The Team</span>
+      <h2>Our Artists</h2>
+    </div>
+
+    <div class="artist-grid">
+
+      <div class="card artist-card">
+        <h3>Jessie-Ann Odell</h3>
+        <p><strong>Specialties:</strong> Realism, Fine Line, Micro Realism</p>
+        <p><strong>Experience:</strong> 10+ years</p>
+      </div>
+
+      <div class="card artist-card">
+        <h3>Taylor Paige Graham</h3>
+        <p><strong>Specialties:</strong> Fine Line, Traditional</p>
+        <p><strong>Experience:</strong> 2+ years</p>
+      </div>
+
+      <div class="card artist-card">
+        <h3>Vivian Howerton</h3>
+        <p><strong>Specialties:</strong> Traditional, Cyberpunk, Native Ornamental</p>
+      </div>
+
+      <div class="card artist-card">
+        <h3>Ian Odel</h3>
+        <p><strong>Specialties:</strong> Fine Line, Realism, Blackwork</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section id="pricing">
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Starting Prices</span>
+      <h2>Pricing</h2>
+    </div>
+
+    <div class="price-grid">
+
+      <div class="card price-card">
+        <h3>Fine Line</h3>
+        <ul class="price-list">
+          <li>0.5–1 inch — $150</li>
+          <li>2–3 inch — $200</li>
+          <li>4–5 inch — $250+</li>
+        </ul>
+      </div>
+
+      <div class="card price-card">
+        <h3>Fine Line Bundles</h3>
+        <ul class="price-list">
+          <li>0.5–1 inch · 2 tattoos — $250</li>
+          <li>0.5–1 inch · 3 tattoos — $300</li>
+          <li>2–3 inch · 2 tattoos — $300</li>
+          <li>2–3 inch · 3 tattoos — $375</li>
+          <li>4–5 inch · 2 tattoos — $375+</li>
+          <li>4–5 inch · 3 tattoos — $475+</li>
+        </ul>
+      </div>
+
+      <div class="card price-card">
+        <h3>Other Tattoos</h3>
+        <ul class="price-list">
+          <li>Micro Realism — $200+</li>
+          <li>Medium Sized Tattoo — $400+</li>
+          <li>Large Tattoo — $600+</li>
+          <li>Custom Sleeves — custom pricing</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-heading">
+      <span>Portfolio</span>
+      <h2>Gallery</h2>
+    </div>
+
+    <p style="text-align:center;">
+      Tattoo portfolio images will be added here.
+    </p>
+  </div>
+</section>
+
+
+<section id="aftercare">
+  <div class="container">
+    <div class="section-heading">
+      <span>Healing</span>
+      <h2>Aftercare</h2>
+    </div>
+
+    <p style="max-width:800px;margin:auto;text-align:center;">
+      Detailed tattoo aftercare instructions will be available here.
+    </p>
+  </div>
+</section>
+
+
+<section id="about">
+  <div class="container">
+    <div class="section-heading">
+      <span>Our Studio</span>
+      <h2>About Place of Art</h2>
+    </div>
+
+    <p style="max-width:800px;margin:auto;text-align:center;">
+      Place of Art is a tattoo shop and gallery focused on custom artwork,
+      professional tattooing and creating an individual experience for every client.
+    </p>
+  </div>
+</section>
+
+
+<section id="news">
+  <div class="container">
+    <div class="section-heading">
+      <span>Studio Updates</span>
+      <h2>News</h2>
+    </div>
+
+    <p style="text-align:center;">
+      Studio news and announcements will be posted here.
+    </p>
+  </div>
+</section>
+
+
+<section id="events">
+  <div class="container">
+    <div class="section-heading">
+      <span>What's Happening</span>
+      <h2>Events</h2>
+    </div>
+
+    <p style="text-align:center;">
+      Upcoming tattoo events and special booking days will be listed here.
+    </p>
+  </div>
+</section>
+
+
+<section id="policy">
+  <div class="container">
+
+    <div class="section-heading">
+      <span>Before Booking</span>
+      <h2>Appointment Policy</h2>
+    </div>
+
+    <div class="policy-box">
+      <p>
+        A <strong>$50 non-refundable deposit</strong> is required to secure most appointments.
+      </p>
+
+      <p>
+        Appointments priced at <strong>$500 or more require a $100 non-refundable deposit.</strong>
+      </p>
+
+      <p>
+        If you need to reschedule your appointment, please provide at least
+        <strong>48 hours notice.</strong>
+      </p>
+
+      <p>
+        Additional booking and cancellation policies may apply and will be provided
+        before your appointment is confirmed.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact">
+  <div class="container">
+    <div class="section-heading">
+      <span>Get In Touch</span>
+      <h2>Contact</h2>
+    </div>
+
+    <p style="text-align:center;">
+      Contact information and social media links will be added here.
+    </p>
+  </div>
+</section>
+
+</main>
+
+
+<footer>
+  <h3>Place of Art</h3>
+  <p>Tattoo Shop & Gallery</p>
+</footer>
+
+
+<script>
+  function showBooking(type) {
+
+    const panel = document.getElementById("bookingPanel");
+
+    const bookingContent = {
+
+      fineline: `
+        <h3>Fine Line Tattoo</h3>
+        <p>Select the approximate size of your tattoo.</p>
+
+        <div class="option-buttons">
+          <button>0.5–1 inch · $150</button>
+          <button>2–3 inch · $200</button>
+          <button>4–5 inch · $250+</button>
+        </div>
+
+        <p>Deposit required at booking.</p>
+      `,
+
+      bundle: `
+        <h3>Fine Line Tattoo Bundle</h3>
+        <p>Select your preferred tattoo bundle.</p>
+
+        <div class="option-buttons">
+          <button>0.5–1 inch · 2 Tattoos · $250</button>
+          <button>0.5–1 inch · 3 Tattoos · $300</button>
+          <button>2–3 inch · 2 Tattoos · $300</button>
+          <button>2–3 inch · 3 Tattoos · $375</button>
+          <button>4–5 inch · 2 Tattoos · $375+</button>
+          <button>4–5 inch · 3 Tattoos · $475+</button>
+        </div>
+      `,
+
+      micro: `
+        <h3>Micro Realism</h3>
+        <p>Starting at <strong>$200+</strong>.</p>
+        <p>Final pricing depends on size, detail and complexity.</p>
+      `,
+
+      medium: `
+        <h3>Medium Sized Tattoo</h3>
+        <p>Starting at <strong>$400+</strong>.</p>
+      `,
+
+      large: `
+        <h3>Large Tattoo</h3>
+        <p>Starting at <strong>$600+</strong>.</p>
+        <p>A $100 non-refundable deposit applies to appointments priced at $500 or more.</p>
+      `,
+
+      sleeve: `
+        <h3>Custom Sleeves</h3>
+        <p>
+          Arm, leg and torso projects are individually priced according to size,
+          estimated tattooing time, design complexity and level of detail.
+        </p>
+      `,
+
+      gift: `
+        <h3>Gift Card</h3>
+        <p>Choose your own gift card amount.</p>
+
+        <div class="option-buttons">
+          <button>$50</button>
+          <button>$100</button>
+          <button>$200</button>
+          <button>$500</button>
+          <button>Custom Amount</button>
+        </div>
+      `
+    };
+
+    panel.innerHTML = bookingContent[type];
+    panel.classList.add("active");
+    panel.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+</script>
+
+</body>
+</html>
