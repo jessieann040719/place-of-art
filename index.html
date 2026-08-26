@@ -7,21 +7,23 @@
 <title>Place of Art | Tattoo Shop & Gallery</title>
 
 <style>
-
 :root{
-  --cream:#f5f0e9;
-  --sand:#ded1c2;
-  --taupe:#a18e7b;
-  --brown:#665448;
-  --dark:#201b18;
-  --white:#fff;
-  --line:#d8cec4;
+  --black:#110e0c;
+  --espresso:#1c1511;
+  --brown:#34251c;
+  --warm:#704b32;
+  --gold:#c69a69;
+  --sand:#d8b991;
+  --cream:#eee1cf;
+  --light:#f6eee4;
+  --muted:#bba993;
+  --line:rgba(216,185,145,.22);
 }
 
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 html{
@@ -29,15 +31,15 @@ html{
 }
 
 body{
+  background:var(--black);
+  color:var(--light);
   font-family:Arial,Helvetica,sans-serif;
-  color:var(--dark);
-  background:var(--cream);
   line-height:1.6;
 }
 
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
 }
 
 button{
@@ -45,260 +47,389 @@ button{
   cursor:pointer;
 }
 
-/* NAVIGATION */
+img{
+  display:block;
+  width:100%;
+}
+
+/* NAV */
 
 header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(250,247,243,.96);
+  background:rgba(17,14,12,.95);
   border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
 }
 
 nav{
   max-width:1250px;
   margin:auto;
-  padding:18px 30px;
+  min-height:78px;
+  padding:14px 28px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:25px;
 }
 
-.logo{
+.nav-logo{
   font-family:Georgia,"Times New Roman",serif;
-  font-size:1.45rem;
-  letter-spacing:.16em;
+  letter-spacing:.18em;
+  font-size:1.3rem;
+  color:var(--cream);
   white-space:nowrap;
 }
 
-.navlinks{
+.nav-links{
   display:flex;
-  gap:25px;
   align-items:center;
-  font-size:.84rem;
+  gap:28px;
+  font-size:.77rem;
   text-transform:uppercase;
-  letter-spacing:.08em;
+  letter-spacing:.15em;
+}
+
+.nav-links a{
+  color:#ddcfbf;
+}
+
+.nav-links a:hover{
+  color:var(--sand);
 }
 
 .book-nav{
-  padding:11px 18px;
-  background:var(--dark);
-  color:white;
+  padding:12px 20px;
+  border:1px solid var(--gold);
+  color:var(--sand)!important;
 }
 
 /* HERO */
 
 .hero{
-  min-height:720px;
+  min-height:750px;
   position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:90px 25px;
   text-align:center;
-  padding:80px 25px;
+
   background:
-    linear-gradient(rgba(25,20,17,.38),rgba(25,20,17,.52)),
+    linear-gradient(
+      90deg,
+      rgba(15,10,7,.82),
+      rgba(25,15,10,.58),
+      rgba(15,10,7,.78)
+    ),
     url("1000050967.jpg") center/cover no-repeat;
-  color:white;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center,transparent 15%,rgba(10,7,5,.35) 80%);
+  pointer-events:none;
 }
 
 .hero-content{
-  max-width:850px;
+  position:relative;
+  z-index:2;
+  max-width:900px;
 }
 
-.hero-small{
-  font-size:.75rem;
-  letter-spacing:.35em;
+.hero-logo{
+  width:min(360px,70vw);
+  margin:0 auto 20px;
+  mix-blend-mode:screen;
+  filter:
+    sepia(.5)
+    saturate(.65)
+    brightness(1.2);
+}
+
+.hero-label{
+  color:var(--sand);
+  letter-spacing:.36em;
   text-transform:uppercase;
-  margin-bottom:20px;
+  font-size:.72rem;
+  margin-bottom:15px;
 }
 
 .hero h1{
   font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(4rem,9vw,7.5rem);
   font-weight:400;
-  line-height:.95;
-  margin-bottom:22px;
+  font-size:clamp(3.8rem,8vw,7rem);
+  line-height:1;
+  letter-spacing:.04em;
+  color:#ead4b5;
 }
 
-.hero h2{
-  font-size:1rem;
-  font-weight:400;
-  letter-spacing:.32em;
+.hero-sub{
+  margin-top:23px;
+  color:#e2d7ca;
   text-transform:uppercase;
-  margin-bottom:30px;
+  letter-spacing:.3em;
+  font-size:.76rem;
 }
 
-.hero p{
+.hero-line{
+  width:150px;
+  height:1px;
+  background:var(--gold);
+  margin:25px auto;
+  opacity:.6;
+}
+
+.hero-text{
   max-width:620px;
-  margin:0 auto 35px;
-  font-size:1.05rem;
+  margin:0 auto 30px;
+  color:#e5dbcf;
 }
 
-.hero-buttons{
+.hero-actions{
   display:flex;
   justify-content:center;
   gap:12px;
   flex-wrap:wrap;
 }
 
-.btn-dark,
-.btn-light{
-  display:inline-block;
-  padding:15px 28px;
-  border:1px solid white;
+.btn-gold,
+.btn-outline{
+  min-width:180px;
+  padding:15px 24px;
   text-transform:uppercase;
-  letter-spacing:.08em;
-  font-size:.82rem;
+  letter-spacing:.13em;
+  font-size:.75rem;
+  transition:.2s;
 }
 
-.btn-dark{
-  background:white;
-  color:var(--dark);
+.btn-gold{
+  background:var(--sand);
+  color:#21160f;
+  border:1px solid var(--sand);
 }
 
-.btn-light{
-  color:white;
+.btn-outline{
+  color:var(--cream);
+  background:rgba(0,0,0,.2);
+  border:1px solid var(--sand);
 }
 
-/* GENERAL */
+.btn-gold:hover,
+.btn-outline:hover{
+  transform:translateY(-2px);
+}
+
+/* FEATURE BAR */
+
+.features{
+  background:#0d0b09;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.feature-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.feature{
+  padding:30px 25px;
+  text-align:center;
+  border-right:1px solid var(--line);
+}
+
+.feature:last-child{
+  border-right:none;
+}
+
+.feature .icon{
+  color:var(--gold);
+  font-size:1.3rem;
+}
+
+.feature h3{
+  margin-top:10px;
+  color:var(--sand);
+  font-size:.74rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+
+.feature p{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:.8rem;
+}
+
+/* SECTIONS */
 
 section{
-  padding:90px 25px;
+  padding:95px 25px;
 }
 
 .container{
-  max-width:1200px;
+  width:min(1180px,100%);
   margin:auto;
 }
 
 .heading{
-  text-align:center;
-  margin-bottom:50px;
+  margin-bottom:48px;
 }
 
-.heading span{
+.heading.center{
+  text-align:center;
+}
+
+.eyebrow{
+  color:var(--gold);
+  font-size:.7rem;
   text-transform:uppercase;
-  letter-spacing:.25em;
-  font-size:.72rem;
-  color:var(--brown);
+  letter-spacing:.28em;
 }
 
 .heading h2{
+  margin-top:9px;
+  color:var(--cream);
   font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(2.5rem,5vw,4rem);
+  font-size:clamp(2.6rem,5vw,4.1rem);
   font-weight:400;
-  margin-top:7px;
+  line-height:1.08;
 }
 
-/* INTRO */
+/* ABOUT */
 
-.intro{
-  background:white;
+.about{
+  background:
+    radial-gradient(circle at 15% 40%,rgba(107,67,39,.2),transparent 35%),
+    var(--espresso);
 }
 
-.intro-grid{
+.about-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
+  gap:65px;
   align-items:center;
-  gap:60px;
 }
 
-.intro-image img{
-  width:100%;
-  height:540px;
+.about-image{
+  position:relative;
+}
+
+.about-image img{
+  height:580px;
   object-fit:cover;
-  display:block;
 }
 
-.intro-copy .label{
-  text-transform:uppercase;
-  letter-spacing:.22em;
-  font-size:.72rem;
-  color:var(--brown);
+.about-image:after{
+  content:"";
+  position:absolute;
+  inset:16px -16px -16px 16px;
+  border:1px solid rgba(198,154,105,.35);
+  z-index:-1;
 }
 
-.intro-copy h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:3.3rem;
+.about-copy h2{
+  font-family:Georgia,serif;
+  font-size:clamp(2.6rem,5vw,4rem);
   font-weight:400;
   line-height:1.1;
-  margin:15px 0 25px;
+  color:var(--cream);
+  margin:12px 0 25px;
 }
 
-.intro-copy p{
-  color:#5d524b;
+.about-copy p{
+  color:#c8b8a7;
   margin-bottom:18px;
+}
+
+.signature{
+  margin-top:28px;
+  color:var(--sand);
+  text-transform:uppercase;
+  font-size:.72rem;
+  letter-spacing:.22em;
 }
 
 /* BOOKING */
 
 .booking{
-  background:var(--cream);
+  background:
+    linear-gradient(rgba(16,12,9,.96),rgba(16,12,9,.96)),
+    url("IMG_1370.jpeg") center/cover fixed;
 }
 
 .booking-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:15px;
 }
 
 .booking-card{
-  background:white;
-  border:1px solid var(--line);
-  padding:32px 28px;
-  min-height:240px;
+  min-height:260px;
+  padding:28px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  transition:.2s ease;
+  background:
+    linear-gradient(145deg,rgba(78,52,36,.75),rgba(24,17,13,.95));
+  border:1px solid var(--line);
+  transition:.25s ease;
 }
 
 .booking-card:hover{
-  transform:translateY(-3px);
-  border-color:var(--brown);
+  transform:translateY(-4px);
+  border-color:rgba(216,185,145,.6);
 }
 
-.booking-card .number{
-  font-family:Georgia,serif;
-  color:var(--taupe);
-  font-size:.85rem;
+.number{
+  color:var(--gold);
+  font-size:.68rem;
+  letter-spacing:.2em;
 }
 
 .booking-card h3{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:1.7rem;
+  margin:17px 0 8px;
+  font-family:Georgia,serif;
+  font-size:1.6rem;
+  color:var(--cream);
   font-weight:400;
-  margin:14px 0 8px;
 }
 
 .booking-card p{
-  color:#685b53;
-  font-size:.92rem;
+  color:#baa896;
+  font-size:.9rem;
 }
 
 .booking-card button{
-  margin-top:25px;
-  padding:13px 10px;
-  border:1px solid var(--dark);
+  margin-top:24px;
+  padding:13px;
+  border:1px solid var(--gold);
   background:transparent;
+  color:var(--sand);
   text-transform:uppercase;
-  letter-spacing:.08em;
-  font-size:.75rem;
+  letter-spacing:.14em;
+  font-size:.7rem;
 }
 
 .booking-card button:hover{
-  background:var(--dark);
-  color:white;
+  background:var(--sand);
+  color:var(--black);
 }
 
 .booking-panel{
   display:none;
-  margin-top:25px;
-  background:white;
+  margin-top:22px;
+  padding:36px;
+  background:#211812;
   border:1px solid var(--line);
-  padding:35px;
 }
 
 .booking-panel.active{
@@ -307,115 +438,121 @@ section{
 
 .booking-panel h3{
   font-family:Georgia,serif;
-  font-size:2.2rem;
+  color:var(--cream);
+  font-size:2rem;
   font-weight:400;
 }
 
 .booking-panel p{
   margin-top:8px;
-  color:#62564e;
+  color:#c4b2a1;
 }
 
 .options{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
   margin-top:22px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 .options button{
-  padding:13px 17px;
-  background:var(--cream);
-  border:1px solid var(--dark);
+  padding:13px 16px;
+  background:#332318;
+  color:var(--cream);
+  border:1px solid #78583d;
 }
 
 .options button:hover{
-  background:var(--dark);
-  color:white;
+  background:var(--sand);
+  color:var(--black);
 }
 
-.deposit-note{
-  margin-top:22px;
-  padding:16px;
-  background:var(--cream);
-  border-left:3px solid var(--brown);
+.deposit{
+  margin-top:20px;
+  border-left:2px solid var(--gold);
+  padding:13px 16px;
+  background:#17110e;
+  color:#d5c5b3;
 }
 
 /* GALLERY */
 
 .gallery{
-  background:var(--dark);
-  color:white;
-}
-
-.gallery .heading span{
-  color:#cbbbaa;
+  background:#0e0b09;
 }
 
 .gallery-grid{
   display:grid;
-  grid-template-columns:1.3fr .7fr .7fr;
+  grid-template-columns:1.2fr .8fr .8fr;
   grid-template-rows:300px 300px;
-  gap:12px;
+  gap:10px;
 }
 
 .gallery-grid img{
-  width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
+  filter:saturate(.8) contrast(1.03);
+  transition:.25s;
+}
+
+.gallery-grid img:hover{
+  filter:saturate(1) contrast(1.05);
 }
 
 .gallery-grid img:first-child{
-  grid-row:1/3;
+  grid-row:1 / 3;
 }
 
 /* ARTISTS */
 
 .artists{
-  background:white;
+  background:#18110d;
 }
 
 .artist-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  gap:20px;
 }
 
 .artist{
-  border-top:1px solid var(--dark);
-  padding-top:20px;
+  padding:25px 5px;
+  border-top:1px solid var(--gold);
 }
 
-.artist .artist-number{
-  font-size:.72rem;
-  letter-spacing:.15em;
-  color:var(--brown);
+.artist-number{
+  font-size:.66rem;
+  letter-spacing:.18em;
+  color:var(--gold);
 }
 
 .artist h3{
+  margin:15px 0 10px;
+  color:var(--cream);
   font-family:Georgia,serif;
   font-size:1.55rem;
   font-weight:400;
-  margin:14px 0;
 }
 
 .artist p{
-  font-size:.9rem;
-  color:#655950;
+  color:#b7a493;
+  font-size:.88rem;
 }
 
-.artist .experience{
-  margin-top:12px;
-  font-size:.78rem;
+.experience{
+  margin-top:13px;
+  color:var(--sand);
   text-transform:uppercase;
-  letter-spacing:.1em;
+  font-size:.66rem;
+  letter-spacing:.15em;
 }
 
 /* PRICING */
 
 .pricing{
-  background:#e7ddd2;
+  background:
+    radial-gradient(circle at right top,rgba(117,77,46,.25),transparent 35%),
+    #201610;
 }
 
 .price-grid{
@@ -425,137 +562,151 @@ section{
 }
 
 .price-card{
-  background:#f9f6f2;
-  padding:30px;
+  padding:32px;
+  background:#160f0c;
+  border:1px solid var(--line);
 }
 
 .price-card h3{
+  color:var(--sand);
   font-family:Georgia,serif;
-  font-size:1.7rem;
   font-weight:400;
-  margin-bottom:20px;
+  font-size:1.65rem;
+  margin-bottom:18px;
 }
 
 .price-row{
   display:flex;
   justify-content:space-between;
   gap:15px;
-  padding:13px 0;
-  border-bottom:1px solid #d8cdc2;
+  padding:12px 0;
+  border-bottom:1px solid rgba(216,185,145,.12);
+  color:#c8b7a4;
 }
 
 .price-row strong{
+  color:var(--cream);
   white-space:nowrap;
 }
 
-/* INFO SECTIONS */
+/* INFO */
 
-.info-section{
-  background:white;
+.info{
+  background:#100c0a;
 }
 
 .info-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:25px;
+  gap:16px;
 }
 
 .info-card{
-  padding:30px;
+  background:#1c1410;
   border:1px solid var(--line);
+  padding:30px;
 }
 
 .info-card h3{
+  color:var(--sand);
   font-family:Georgia,serif;
   font-size:1.6rem;
   font-weight:400;
-  margin-bottom:14px;
 }
 
 .info-card p{
-  color:#62564f;
+  margin-top:12px;
+  color:#bba997;
 }
 
 /* POLICY */
 
 .policy{
-  background:var(--cream);
+  background:#1b130f;
 }
 
 .policy-box{
   max-width:850px;
   margin:auto;
-  background:white;
   padding:45px;
   border:1px solid var(--line);
+  background:#100c0a;
 }
 
 .policy-box h3{
   font-family:Georgia,serif;
-  font-size:2rem;
   font-weight:400;
-  margin-bottom:22px;
+  color:var(--sand);
+  font-size:2rem;
+  margin-bottom:20px;
 }
 
 .policy-box p{
-  margin:12px 0;
+  color:#c2b09d;
+  margin:13px 0;
+}
+
+.policy-box strong{
+  color:var(--cream);
 }
 
 /* CONTACT */
 
 .contact{
-  background:var(--dark);
-  color:white;
+  position:relative;
   text-align:center;
+  background:
+    linear-gradient(rgba(12,8,6,.82),rgba(12,8,6,.92)),
+    url("IMG_1651.jpeg") center/cover no-repeat;
 }
 
 .contact h2{
+  color:var(--cream);
   font-family:Georgia,serif;
-  font-size:3.5rem;
   font-weight:400;
+  font-size:clamp(3rem,6vw,5rem);
 }
 
 .contact p{
   max-width:600px;
-  margin:20px auto;
-  color:#d8cec5;
+  color:#c9b7a4;
+  margin:20px auto 30px;
 }
 
 /* FOOTER */
 
 footer{
-  padding:35px 20px;
-  background:#151210;
-  color:#ddd3ca;
   text-align:center;
+  padding:45px 20px;
+  background:#090706;
+  border-top:1px solid var(--line);
 }
 
-footer .footer-logo{
+.footer-logo{
+  color:var(--sand);
   font-family:Georgia,serif;
-  font-size:1.5rem;
-  letter-spacing:.15em;
-  color:white;
+  letter-spacing:.2em;
+  font-size:1.4rem;
 }
 
 footer p{
-  margin-top:8px;
-  font-size:.8rem;
+  margin-top:9px;
+  color:#8f806f;
+  font-size:.75rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
-  .navlinks a:not(.book-nav){
+  .nav-links a:not(.book-nav){
     display:none;
   }
 
-  .intro-grid{
+  .about-grid{
     grid-template-columns:1fr;
-  }
-
-  .intro-image img{
-    height:420px;
   }
 
   .booking-grid,
@@ -567,88 +718,95 @@ footer p{
     grid-template-columns:1fr 1fr;
   }
 
+  .feature-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .feature:nth-child(2){
+    border-right:none;
+  }
+
   .gallery-grid{
     grid-template-columns:1fr 1fr;
-    grid-template-rows:300px 250px 250px;
+    grid-template-rows:300px 260px 260px;
   }
 
   .gallery-grid img:first-child{
     grid-column:1/3;
     grid-row:auto;
   }
-
-  .info-grid{
-    grid-template-columns:1fr;
-  }
 }
 
-@media(max-width:600px){
+@media(max-width:620px){
 
   nav{
-    padding:15px 18px;
+    padding:13px 16px;
   }
 
-  .logo{
-    font-size:1.05rem;
+  .nav-logo{
+    font-size:.95rem;
   }
 
   .hero{
-    min-height:620px;
+    min-height:700px;
+  }
+
+  .hero h1{
+    font-size:3.4rem;
   }
 
   section{
-    padding:65px 18px;
+    padding:70px 18px;
   }
 
   .booking-grid,
   .price-grid,
-  .artist-grid{
+  .artist-grid,
+  .feature-grid,
+  .info-grid{
     grid-template-columns:1fr;
   }
 
-  .intro-copy h2{
-    font-size:2.5rem;
+  .feature{
+    border-right:none;
+    border-bottom:1px solid var(--line);
+  }
+
+  .about-image img{
+    height:420px;
   }
 
   .gallery-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    grid-template-rows:auto;
+    display:block;
   }
 
-  .gallery-grid img,
-  .gallery-grid img:first-child{
-    grid-column:auto;
-    grid-row:auto;
-    height:320px;
+  .gallery-grid img{
+    height:330px;
+    margin-bottom:10px;
   }
 
   .policy-box{
-    padding:28px 22px;
+    padding:28px 20px;
   }
 }
-
 </style>
 </head>
-
 
 <body>
 
 <header>
 <nav>
+  <div class="nav-logo">PLACE OF ART</div>
 
-<div class="logo">PLACE OF ART</div>
-
-<div class="navlinks">
-<a href="#home">Home</a>
-<a href="#artists">Artists</a>
-<a href="#pricing">Pricing</a>
-<a href="#gallery">Gallery</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-<a href="#booking" class="book-nav">Book Now</a>
-</div>
-
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#artists">Artists</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#booking" class="book-nav">Book Now</a>
+  </div>
 </nav>
 </header>
 
@@ -661,66 +819,108 @@ footer p{
 
 <div class="hero-content">
 
-<div class="hero-small">Tattoo Shop & Gallery</div>
+  <img src="logo.jpg" class="hero-logo" alt="Place of Art Tattoo Shop & Gallery logo">
 
-<h1>Place of Art</h1>
+  <div class="hero-label">
+    Tattoo Shop & Gallery
+  </div>
 
-<h2>Art · Ink · Individuality</h2>
+  <h1>Place of Art</h1>
 
-<p>
-A professional tattoo studio dedicated to custom artwork,
-fine craftsmanship and tattoos designed around the individual.
-</p>
+  <div class="hero-sub">
+    Custom Tattooing · Poteau, Oklahoma
+  </div>
 
-<div class="hero-buttons">
+  <div class="hero-line"></div>
 
-<a href="#booking" class="btn-dark">
-Book Your Tattoo
-</a>
+  <p class="hero-text">
+    Custom artwork, experienced artists and tattoos created
+    with precision, individuality and attention to every detail.
+  </p>
 
-<a href="#gallery" class="btn-light">
-View Our Work
-</a>
-
-</div>
+  <div class="hero-actions">
+    <a href="#booking" class="btn-gold">Book Appointment</a>
+    <a href="#gallery" class="btn-outline">View Gallery</a>
+  </div>
 
 </div>
 
 </section>
 
 
-<!-- ABOUT -->
+<!-- FEATURES -->
 
-<section class="intro" id="about">
+<div class="features">
 
-<div class="container intro-grid">
+<div class="feature-grid">
 
-<div class="intro-image">
-<img src="IMG_1320.jpeg" alt="Place of Art tattoo studio">
+  <div class="feature">
+    <div class="icon">✦</div>
+    <h3>Custom Artwork</h3>
+    <p>Unique designs tailored to you.</p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">✦</div>
+    <h3>Clean & Professional</h3>
+    <p>A professional studio environment.</p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">✦</div>
+    <h3>Experienced Artists</h3>
+    <p>A variety of styles and specialties.</p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">✦</div>
+    <h3>Passion & Detail</h3>
+    <p>Every line, shade and detail matters.</p>
+  </div>
+
 </div>
 
-<div class="intro-copy">
+</div>
 
-<div class="label">Welcome to Place of Art</div>
 
-<h2>
-More than a tattoo studio.
-</h2>
+<!-- ABOUT -->
 
-<p>
-Place of Art is a tattoo shop and gallery focused on custom artwork,
-professional tattooing and an individual experience for every client.
-</p>
+<section class="about" id="about">
 
-<p>
-Our artists specialize in a range of styles including Fine Line,
-Realism, Micro Realism, Traditional, Blackwork, Cyberpunk and
-ornamental tattooing.
-</p>
+<div class="container about-grid">
 
-<a href="#artists" class="book-nav">
-Meet Our Artists
-</a>
+<div class="about-image">
+  <img src="IMG_1320.jpeg" alt="Place of Art tattoo studio interior">
+</div>
+
+<div class="about-copy">
+
+  <div class="eyebrow">Welcome to Place of Art</div>
+
+  <h2>
+    Art that becomes part of you.
+  </h2>
+
+  <p>
+    Place of Art is a tattoo shop and gallery built around creativity,
+    craftsmanship and individuality.
+  </p>
+
+  <p>
+    Our artists work across a variety of styles including Fine Line,
+    Realism, Micro Realism, Traditional, Blackwork, Cyberpunk and
+    ornamental tattooing.
+  </p>
+
+  <p>
+    Whether you're looking for a delicate Fine Line piece or a large
+    custom project, our goal is to create artwork designed specifically
+    for you.
+  </p>
+
+  <div class="signature">
+    Place of Art · Tattoo Shop & Gallery
+  </div>
 
 </div>
 
@@ -735,124 +935,87 @@ Meet Our Artists
 
 <div class="container">
 
-<div class="heading">
-<span>Start Here</span>
-<h2>Book Your Tattoo</h2>
+<div class="heading center">
+  <div class="eyebrow">Appointments</div>
+  <h2>Choose Your Tattoo</h2>
 </div>
 
 <div class="booking-grid">
 
 
 <div class="booking-card">
-
-<div>
-<div class="number">01</div>
-<h3>Fine Line Tattoo</h3>
-<p>Delicate, precise and minimal tattoo work.</p>
-</div>
-
-<button onclick="openBooking('fineline')">
-Choose Size
-</button>
-
+  <div>
+    <div class="number">01</div>
+    <h3>Fine Line Tattoo</h3>
+    <p>Delicate, precise and minimal tattoo work.</p>
+  </div>
+  <button onclick="openBooking('fineline')">Choose Size</button>
 </div>
 
 
 <div class="booking-card">
-
-<div>
-<div class="number">02</div>
-<h3>Fine Line Bundle</h3>
-<p>Multiple Fine Line tattoos booked together.</p>
-</div>
-
-<button onclick="openBooking('bundle')">
-View Bundles
-</button>
-
+  <div>
+    <div class="number">02</div>
+    <h3>Fine Line Bundle</h3>
+    <p>Multiple Fine Line tattoos booked together.</p>
+  </div>
+  <button onclick="openBooking('bundle')">View Bundles</button>
 </div>
 
 
 <div class="booking-card">
-
-<div>
-<div class="number">03</div>
-<h3>Micro Realism</h3>
-<p>Small-scale realistic tattooing with intricate details.</p>
-</div>
-
-<button onclick="openBooking('micro')">
-View Pricing
-</button>
-
+  <div>
+    <div class="number">03</div>
+    <h3>Micro Realism</h3>
+    <p>Small-scale realism with detailed execution.</p>
+  </div>
+  <button onclick="openBooking('micro')">View Pricing</button>
 </div>
 
 
 <div class="booking-card">
-
-<div>
-<div class="number">04</div>
-<h3>Medium Tattoo</h3>
-<p>Custom medium-sized tattoo projects.</p>
-</div>
-
-<button onclick="openBooking('medium')">
-View Pricing
-</button>
-
+  <div>
+    <div class="number">04</div>
+    <h3>Medium Sized Tattoo</h3>
+    <p>Custom medium-sized tattoo projects.</p>
+  </div>
+  <button onclick="openBooking('medium')">View Pricing</button>
 </div>
 
 
 <div class="booking-card">
-
-<div>
-<div class="number">05</div>
-<h3>Large Tattoo</h3>
-<p>Larger custom pieces requiring extended sessions.</p>
-</div>
-
-<button onclick="openBooking('large')">
-View Pricing
-</button>
-
+  <div>
+    <div class="number">05</div>
+    <h3>Large Tattoo</h3>
+    <p>Large custom pieces and extended sessions.</p>
+  </div>
+  <button onclick="openBooking('large')">View Pricing</button>
 </div>
 
 
 <div class="booking-card">
-
-<div>
-<div class="number">06</div>
-<h3>Custom Sleeves</h3>
-<p>Custom arm, leg and torso projects.</p>
-</div>
-
-<button onclick="openBooking('sleeve')">
-Learn More
-</button>
-
+  <div>
+    <div class="number">06</div>
+    <h3>Custom Sleeves</h3>
+    <p>Arm, leg and torso projects designed around you.</p>
+  </div>
+  <button onclick="openBooking('sleeve')">Learn More</button>
 </div>
 
 
 <div class="booking-card">
-
-<div>
-<div class="number">07</div>
-<h3>Gift Card</h3>
-<p>Give someone the gift of new artwork.</p>
-</div>
-
-<button onclick="openBooking('gift')">
-Gift Cards
-</button>
-
+  <div>
+    <div class="number">07</div>
+    <h3>Gift Card</h3>
+    <p>Give someone the gift of new artwork.</p>
+  </div>
+  <button onclick="openBooking('gift')">Gift Cards</button>
 </div>
 
 
 </div>
-
 
 <div id="bookingPanel" class="booking-panel"></div>
-
 
 </div>
 
@@ -865,22 +1028,18 @@ Gift Cards
 
 <div class="container">
 
-<div class="heading">
-<span>Our Space</span>
-<h2>Inside Place of Art</h2>
+<div class="heading center">
+  <div class="eyebrow">The Studio</div>
+  <h2>Inside Place of Art</h2>
 </div>
 
 <div class="gallery-grid">
 
-<img src="IMG_1367.jpeg" alt="Place of Art studio interior">
-
-<img src="IMG_1370.jpeg" alt="Place of Art tattoo studio">
-
-<img src="IMG_1371.jpeg" alt="Tattoo studio interior">
-
-<img src="IMG_1646.jpeg" alt="Place of Art studio detail">
-
-<img src="IMG_1651.jpeg" alt="Place of Art tattoo shop">
+  <img src="IMG_1367.jpeg" alt="Place of Art studio">
+  <img src="IMG_1370.jpeg" alt="Place of Art studio interior">
+  <img src="IMG_1371.jpeg" alt="Tattoo studio interior">
+  <img src="IMG_1646.jpeg" alt="Place of Art detail">
+  <img src="IMG_1651.jpeg" alt="Place of Art tattoo studio">
 
 </div>
 
@@ -895,74 +1054,42 @@ Gift Cards
 
 <div class="container">
 
-<div class="heading">
-<span>The Artists</span>
-<h2>Meet Our Team</h2>
+<div class="heading center">
+  <div class="eyebrow">Our Team</div>
+  <h2>Meet the Artists</h2>
 </div>
 
 
 <div class="artist-grid">
 
-
 <div class="artist">
-
-<div class="artist-number">ARTIST 01</div>
-
-<h3>Jessie-Ann Odell</h3>
-
-<p>
-Realism · Fine Line · Micro Realism
-</p>
-
-<div class="experience">
-10+ Years Experience
-</div>
-
+  <div class="artist-number">ARTIST 01</div>
+  <h3>Jessie-Ann Odell</h3>
+  <p>Realism · Fine Line · Micro Realism</p>
+  <div class="experience">10+ Years Experience</div>
 </div>
 
 
 <div class="artist">
-
-<div class="artist-number">ARTIST 02</div>
-
-<h3>Taylor Paige Graham</h3>
-
-<p>
-Fine Line · Traditional
-</p>
-
-<div class="experience">
-2+ Years Experience
-</div>
-
+  <div class="artist-number">ARTIST 02</div>
+  <h3>Taylor Paige Graham</h3>
+  <p>Fine Line · Traditional</p>
+  <div class="experience">2+ Years Experience</div>
 </div>
 
 
 <div class="artist">
-
-<div class="artist-number">ARTIST 03</div>
-
-<h3>Vivian Howerton</h3>
-
-<p>
-Traditional · Cyberpunk · Native Ornamental
-</p>
-
+  <div class="artist-number">ARTIST 03</div>
+  <h3>Vivian Howerton</h3>
+  <p>Traditional · Cyberpunk · Native Ornamental</p>
 </div>
 
 
 <div class="artist">
-
-<div class="artist-number">ARTIST 04</div>
-
-<h3>Ian Odel</h3>
-
-<p>
-Fine Line · Realism · Blackwork
-</p>
-
+  <div class="artist-number">ARTIST 04</div>
+  <h3>Ian Odel</h3>
+  <p>Fine Line · Realism · Blackwork</p>
 </div>
-
 
 </div>
 
@@ -977,32 +1104,31 @@ Fine Line · Realism · Blackwork
 
 <div class="container">
 
-<div class="heading">
-<span>Starting Prices</span>
-<h2>Tattoo Pricing</h2>
+<div class="heading center">
+  <div class="eyebrow">Starting Prices</div>
+  <h2>Tattoo Pricing</h2>
 </div>
 
 
 <div class="price-grid">
-
 
 <div class="price-card">
 
 <h3>Fine Line</h3>
 
 <div class="price-row">
-<span>0.5–1 inch</span>
-<strong>$150</strong>
+  <span>0.5–1 inch</span>
+  <strong>$150</strong>
 </div>
 
 <div class="price-row">
-<span>2–3 inch</span>
-<strong>$200</strong>
+  <span>2–3 inch</span>
+  <strong>$200</strong>
 </div>
 
 <div class="price-row">
-<span>4–5 inch</span>
-<strong>$250+</strong>
+  <span>4–5 inch</span>
+  <strong>$250+</strong>
 </div>
 
 </div>
@@ -1013,33 +1139,33 @@ Fine Line · Realism · Blackwork
 <h3>Fine Line Bundles</h3>
 
 <div class="price-row">
-<span>0.5–1" · 2 Tattoos</span>
-<strong>$250</strong>
+  <span>0.5–1" · 2 Tattoos</span>
+  <strong>$250</strong>
 </div>
 
 <div class="price-row">
-<span>0.5–1" · 3 Tattoos</span>
-<strong>$300</strong>
+  <span>0.5–1" · 3 Tattoos</span>
+  <strong>$300</strong>
 </div>
 
 <div class="price-row">
-<span>2–3" · 2 Tattoos</span>
-<strong>$300</strong>
+  <span>2–3" · 2 Tattoos</span>
+  <strong>$300</strong>
 </div>
 
 <div class="price-row">
-<span>2–3" · 3 Tattoos</span>
-<strong>$375</strong>
+  <span>2–3" · 3 Tattoos</span>
+  <strong>$375</strong>
 </div>
 
 <div class="price-row">
-<span>4–5" · 2 Tattoos</span>
-<strong>$375+</strong>
+  <span>4–5" · 2 Tattoos</span>
+  <strong>$375+</strong>
 </div>
 
 <div class="price-row">
-<span>4–5" · 3 Tattoos</span>
-<strong>$475+</strong>
+  <span>4–5" · 3 Tattoos</span>
+  <strong>$475+</strong>
 </div>
 
 </div>
@@ -1050,27 +1176,26 @@ Fine Line · Realism · Blackwork
 <h3>Custom Work</h3>
 
 <div class="price-row">
-<span>Micro Realism</span>
-<strong>$200+</strong>
+  <span>Micro Realism</span>
+  <strong>$200+</strong>
 </div>
 
 <div class="price-row">
-<span>Medium Tattoo</span>
-<strong>$400+</strong>
+  <span>Medium Tattoo</span>
+  <strong>$400+</strong>
 </div>
 
 <div class="price-row">
-<span>Large Tattoo</span>
-<strong>$600+</strong>
+  <span>Large Tattoo</span>
+  <strong>$600+</strong>
 </div>
 
 <div class="price-row">
-<span>Custom Sleeves</span>
-<strong>Custom</strong>
+  <span>Custom Sleeves</span>
+  <strong>Custom</strong>
 </div>
 
 </div>
-
 
 </div>
 
@@ -1079,56 +1204,39 @@ Fine Line · Realism · Blackwork
 </section>
 
 
-<!-- INFORMATION -->
+<!-- INFO -->
 
-<section class="info-section">
+<section class="info">
 
 <div class="container">
 
-<div class="heading">
-<span>Client Information</span>
-<h2>Before Your Appointment</h2>
+<div class="heading center">
+  <div class="eyebrow">Client Information</div>
+  <h2>Before Your Appointment</h2>
 </div>
-
 
 <div class="info-grid">
 
-
 <div class="info-card" id="aftercare">
-
-<h3>Aftercare</h3>
-
-<p>
-Detailed tattoo healing and aftercare instructions will be provided
-after your appointment and added here.
-</p>
-
+  <h3>Aftercare</h3>
+  <p>
+    Tattoo aftercare and healing information will be available here.
+  </p>
 </div>
-
 
 <div class="info-card" id="news">
-
-<h3>News</h3>
-
-<p>
-Studio announcements, new artists and other Place of Art updates
-will be posted here.
-</p>
-
+  <h3>News</h3>
+  <p>
+    Studio news, artist updates and announcements will be posted here.
+  </p>
 </div>
-
 
 <div class="info-card" id="events">
-
-<h3>Events</h3>
-
-<p>
-Upcoming tattoo events, special booking days and studio events
-will be announced here.
-</p>
-
+  <h3>Events</h3>
+  <p>
+    Special tattoo events and upcoming studio events will appear here.
+  </p>
 </div>
-
 
 </div>
 
@@ -1143,11 +1251,10 @@ will be announced here.
 
 <div class="container">
 
-<div class="heading">
-<span>Please Read</span>
-<h2>Booking Policy</h2>
+<div class="heading center">
+  <div class="eyebrow">Before Booking</div>
+  <h2>Appointment Policy</h2>
 </div>
-
 
 <div class="policy-box">
 
@@ -1155,7 +1262,7 @@ will be announced here.
 
 <p>
 A <strong>$50 non-refundable deposit</strong> is required to secure
-most tattoo appointments.
+most appointments.
 </p>
 
 <p>
@@ -1169,8 +1276,8 @@ when requesting to reschedule an appointment.
 </p>
 
 <p>
-Additional booking, cancellation and appointment policies
-may apply and will be provided before your appointment is confirmed.
+Additional booking and appointment policies may apply and will be
+provided before your appointment is confirmed.
 </p>
 
 </div>
@@ -1186,23 +1293,22 @@ may apply and will be provided before your appointment is confirmed.
 
 <div class="container">
 
-<div class="hero-small">Contact</div>
+<div class="eyebrow">Place of Art</div>
 
 <h2>Let's Create Something.</h2>
 
 <p>
-Contact information, social media links and studio location
+Contact information, social media, studio address and business hours
 will be added here.
 </p>
 
-<a href="#booking" class="btn-dark">
-Book Your Tattoo
+<a href="#booking" class="btn-gold">
+Book Appointment
 </a>
 
 </div>
 
 </section>
-
 
 </main>
 
@@ -1238,14 +1344,14 @@ fineline:`
 <button>4–5 inch · $250+</button>
 </div>
 
-<div class="deposit-note">
-$50 non-refundable deposit required to secure your appointment.
+<div class="deposit">
+$50 non-refundable deposit required when booking.
 </div>
 `,
 
 bundle:`
 <h3>Fine Line Tattoo Bundle</h3>
-<p>Select the bundle you would like to book.</p>
+<p>Select your bundle.</p>
 
 <div class="options">
 <button>0.5–1" · 2 Tattoos · $250</button>
@@ -1256,8 +1362,8 @@ bundle:`
 <button>4–5" · 3 Tattoos · $475+</button>
 </div>
 
-<div class="deposit-note">
-$50 non-refundable deposit required to secure your appointment.
+<div class="deposit">
+$50 non-refundable deposit required when booking.
 </div>
 `,
 
@@ -1266,11 +1372,11 @@ micro:`
 
 <p>
 Micro Realism tattoos start at <strong>$200+</strong>.
-Pricing varies depending on size, detail and complexity.
+Pricing varies depending on size, detail, shading and complexity.
 </p>
 
-<div class="deposit-note">
-A deposit is required when booking.
+<div class="deposit">
+A non-refundable deposit is required when booking.
 </div>
 `,
 
@@ -1278,9 +1384,13 @@ medium:`
 <h3>Medium Sized Tattoo</h3>
 
 <p>
-Medium sized custom tattoos start at <strong>$400+</strong>.
-Final pricing depends on the design, placement and detail.
+Medium sized tattoos start at <strong>$400+</strong>.
+Final pricing depends on size, placement and detail.
 </p>
+
+<div class="deposit">
+$50 non-refundable deposit required when booking.
+</div>
 `,
 
 large:`
@@ -1288,10 +1398,10 @@ large:`
 
 <p>
 Large tattoo projects start at <strong>$600+</strong>.
-Final pricing depends on size, detail and estimated tattooing time.
+Final pricing depends on size, complexity and estimated tattooing time.
 </p>
 
-<div class="deposit-note">
+<div class="deposit">
 Appointments priced at $500 or more require a $100 non-refundable deposit.
 </div>
 `,
@@ -1300,8 +1410,8 @@ sleeve:`
 <h3>Custom Sleeves</h3>
 
 <p>
-Arm, leg and torso projects are individually priced based on
-size, estimated tattooing time and level of detail.
+Arm, leg and torso projects are individually priced based on size,
+estimated tattooing time, placement and level of detail.
 </p>
 
 <p>
@@ -1324,21 +1434,19 @@ gift:`
 <button>Custom Amount</button>
 </div>
 `
-
 };
 
 panel.innerHTML=content[type];
 panel.classList.add("active");
 
 panel.scrollIntoView({
-behavior:"smooth",
-block:"center"
+  behavior:"smooth",
+  block:"center"
 });
 
 }
 
 </script>
-
 
 </body>
 </html>
